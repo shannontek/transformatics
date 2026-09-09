@@ -1,0 +1,121 @@
+{
+  "standing": "RESTRICTED CONE ALGEBRA KERNEL-CHECKED; PDE and ODE application not formalized",
+  "download": {
+    "url": "https://github.com/leanprover/lean4/releases/download/v4.28.0/lean-4.28.0-darwin_aarch64.tar.zst",
+    "size": 502221897,
+    "sha256": "61942f9d1907db918020154a517c87fb64841e48cebb0032fc0909df8d189a05",
+    "expected_sha256": "61942f9d1907db918020154a517c87fb64841e48cebb0032fc0909df8d189a05",
+    "digest_matches": true,
+    "source": "GitHub official release API assets digest",
+    "directory": "/tmp/nse-lean428-kernel-20260908-4eicatol"
+  },
+  "compiler_version": "Lean (version 4.28.0, arm64-apple-darwin24.6.0, commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b, Release)",
+  "mathlib_commit": "8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+  "source": "/tmp/NSEObliqueCone428.lean",
+  "source_sha256": "b1c04ded30010b65de978338d484fe9170fea88202a1a91307bca55e4d88d1ab",
+  "object_sha256": "d35ec1fae6374023ace3eca739016ab8afbe7806fbfe17f1a71f658cb3263013",
+  "compile_command": {
+    "cmd": [
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/lean",
+      "-o",
+      "/tmp/NSEObliqueCone428.olean",
+      "/tmp/NSEObliqueCone428.lean"
+    ],
+    "cwd": "/tmp",
+    "LEAN_PATH": "/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/mathlib/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/plausible/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/proofwidgets/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/batteries/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/aesop/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/importGraph/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/Qq/.lake/build/lib/lean",
+    "exit_code": 0
+  },
+  "axiom_printout": "'Transformatics.ObliqueCone.full_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.basis_left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.basis_right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.cone_face_margins' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.expanding_component' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "printed_axioms_allowed": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declaration_replay": {
+    "cmd": [
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/leanchecker",
+      "--verbose",
+      "NSEObliqueCone428"
+    ],
+    "cwd": "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build",
+    "LEAN_PATH": "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/mathlib/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/plausible/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/proofwidgets/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/batteries/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/aesop/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/importGraph/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/Qq/.lake/build/lib/lean",
+    "exit_code": 0,
+    "timed_out": false,
+    "stdout": "replaying NSEObliqueCone428\n"
+  },
+  "fresh_import_closure_replay": {
+    "cmd": [
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/leanchecker",
+      "--fresh",
+      "--verbose",
+      "NSEObliqueCone428"
+    ],
+    "cwd": "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build",
+    "exit_code": null,
+    "timed_out": true,
+    "stdout": "None"
+  },
+  "upstream_tube_compile": {
+    "cmd": [
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/lean",
+      "-o",
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build/EulerBlowup/Num/Tube.olean",
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build/EulerBlowup/Num/Tube.lean"
+    ],
+    "cwd": "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build",
+    "exit_code": 1,
+    "stdout": "/tmp/nse-lean428-kernel-20260908-4eicatol/cone-build/EulerBlowup/Num/Tube.lean:1:0: error: object file '/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Slope.olean' of module Mathlib.Analysis.Calculus.Deriv.Slope does not exist\n",
+    "upstream_sha256": "e2b0f950425314f0ffcf3b8bbf7c3a7752eaeda778bb98698b934b1f158f0566",
+    "adaptation": "Only import Mathlib replaced by targeted calculus/topology/tactic imports; proof body unchanged",
+    "adapted_sha256": "5fe65b88c6051113c008419da57e5ec62c67f59985230bc83c93ffc2fcda5866"
+  },
+  "missing_tube_dependency_objects": 1064,
+  "proof_scope": [
+    "linear action conjugacy B0*S*Q=S*Q*D",
+    "two-sided inverse for coordinate basis S*Q",
+    "inward slope margins -23/48 and +23/48 assuming |Rij|<=1/12",
+    "expanding component rate>=13/24 assuming |z|<=1/2 and Xplus>=0"
+  ],
+  "not_formalized": [
+    "Gavrilov profile coefficient convergence",
+    "differentiated quotient and ODE cone invariance",
+    "periodic monodromy fixed point",
+    "localized Euler/NS high-frequency amplification",
+    "nonlinear feedback",
+    "infinite cascade",
+    "ROOT or E-prime"
+  ],
+  "no_dependency_build": true,
+  "no_new_PDE_simulation": true,
+  "initial_compile_corrections": [
+    "added noncomputable section for real-valued divisions",
+    "used cached nlinarith rather than unavailable ring tactic"
+  ],
+  "integrated_source": "formalization/oblique_cone/NSEObliqueCone428.lean",
+  "relocated_verification": {
+    "source": "/Volumes/VIXinSSD/transformatics/formalization/oblique_cone/NSEObliqueCone428.lean",
+    "source_sha256": "b1c04ded30010b65de978338d484fe9170fea88202a1a91307bca55e4d88d1ab",
+    "source_unchanged": true,
+    "cmd": [
+      "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/lean",
+      "-o",
+      "/tmp/nse-cone428-relocated-20260908-hrk0flim/NSEObliqueCone428.olean",
+      "/Volumes/VIXinSSD/transformatics/formalization/oblique_cone/NSEObliqueCone428.lean"
+    ],
+    "cwd": "/Volumes/VIXinSSD/transformatics/formalization/oblique_cone",
+    "LEAN_PATH": "/tmp/nse-cone428-relocated-20260908-hrk0flim:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/mathlib/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/plausible/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/proofwidgets/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/batteries/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/aesop/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/importGraph/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Volumes/VIXinSSD/transformatics/mathlib_bridge/.lake/packages/Qq/.lake/build/lib/lean",
+    "exit_code": 0,
+    "stdout": "'Transformatics.ObliqueCone.full_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.basis_left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.basis_right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.cone_face_margins' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Transformatics.ObliqueCone.expanding_component' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "declaration_replay": {
+      "cmd": [
+        "/tmp/nse-lean428-kernel-20260908-4eicatol/lean-4.28.0-darwin_aarch64/bin/leanchecker",
+        "--verbose",
+        "NSEObliqueCone428"
+      ],
+      "cwd": "/tmp/nse-cone428-relocated-20260908-hrk0flim",
+      "exit_code": 0,
+      "stdout": "replaying NSEObliqueCone428\n"
+    }
+  },
+  "upstream_code_copied": false
+}

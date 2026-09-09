@@ -1,0 +1,32 @@
+# Build output and local review captures
+textbook/_site/
+textbook/review/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS and editors
+.DS_Store
+.vscode/
+.idea/
+
+# Local credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Lean build artifacts (for readers who compile the included sources)
+*.olean
+*.glob
+*.vo
+*.vok
+*.vos
+.lake/

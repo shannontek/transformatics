@@ -1,0 +1,975 @@
+{
+  "schema_version": 2,
+  "edition_date": "2026-09-08",
+  "canonical_status": "source/docs/STATUS.md",
+  "dependency_semantics": "Edges record mathematical inputs or explicitly identified prior construction inputs; they do not assert sufficiency for ROOT. This is an editorial selection of research and textbook claims, not a copy of the complete repository proof graph.",
+  "formalization": "Local: restricted cone algebra recorded with Lean 4.28.0; the phase-covariance corollary compiled and its local declarations replayed with Lean 4.34.0-rc2. External: the exact Navier-Stokes target built locally from unchanged pinned sources with cached Mathlib imports; both main targets printed only the three usual axioms. Independent Comparator/Nanoda not run. Separate replay scopes and outcomes are in the linked receipts. The external full-import bundled-kernel replay remains incomplete: an earlier attempt hit a 600-second limit, and a later attempt was stopped after 1485.74 seconds under severe host memory and swap pressure (exit 143, empty buffered log). Neither outcome is a proof rejection or a passing verification.",
+  "claims": [
+    {
+      "id": "ROOT",
+      "title": "Global regularity for three-dimensional periodic NS",
+      "status": "OPEN",
+      "verification_label": "Open — no proof of the full target recorded",
+      "scope": "All smooth real mean-zero solenoidal data on the fixed three-torus, fixed positive viscosity, zero forcing.",
+      "depends_on": [],
+      "sources": [
+        "docs/STATUS.md"
+      ],
+      "excludes": "No global regularity or finite-time blow-up theorem is established.",
+      "evidence": {
+        "provenance": "Local formulation of the classical unforced periodic regularity problem.",
+        "proof_status": "Open: no proof of the full target is recorded.",
+        "review": "not recorded",
+        "formalization": "No ROOT proof. The local Lean check covers only the separate conditional cone-algebra claim."
+      },
+      "contract": {
+        "assumptions": [
+          "Ordinary incompressible Navier–Stokes with fixed physical viscosity nu > 0 and zero force.",
+          "Real, smooth, mean-zero, divergence-free periodic initial velocity; periodic pressure."
+        ],
+        "domain": "The fixed three-dimensional torus (R/(2pi Z))^3, for all physical times t >= 0.",
+        "norms": [
+          "The target is global smooth continuation for every admissible datum; it does not assert a uniform numerical bound over all data or over infinite time."
+        ],
+        "coordinate_convention": "Physical Euclidean coordinates on the fixed torus; no changing-domain or varying-data limit replaces one trajectory.",
+        "quantifiers": [
+          "For every fixed nu > 0 and every admissible initial velocity, the corresponding smooth solution continues through every finite time. This remains open."
+        ]
+      }
+    },
+    {
+      "id": "FORCED-D",
+      "title": "Breakdown with a smooth periodic force",
+      "status": "IMPORTED",
+      "verification_label": "Imported external written proof; local Lean target build passed; full imported-closure replay incomplete; Comparator not run",
+      "scope": "OpenAI’s published Theorem 1.1 and Corollary 10.6 establish the forced alternatives C and D for every fixed positive viscosity, with initially resting fluid and a force smooth through terminal time. The periodic case includes periodic pressure.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_OPENAI_RESULT_BRIDGE_2026_09_08.md",
+        "docs/NSE_TWO_TRACK_PROGRAM_2026_09_08.md",
+        "docs/NSE_FORCED_ADMISSIBILITY_2026_09_08.md",
+        "docs/NSE_FORCED_VISCOSITY_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FIXED_ANNULUS_OBSTRUCTION_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_VISCOUS_STAGE_ATTEMPT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FORCE_GAIN_AUDIT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_EXTERNAL_STATEMENT_AUDIT_2026_09_08.md",
+        "formalization/external_ns/README.md",
+        "formalization/external_ns/receipt.json"
+      ],
+      "excludes": "Externally authored result. The exact exported NS target built locally, but this does not identify every paper assertion with its formal theorem type, verify the companion Euler library, or establish external expert acceptance. Independent Comparator/Nanoda not run. The result does not imply unforced ROOT.",
+      "evidence": {
+        "provenance": "Imported: OpenAI, Finite time blowup for Navier–Stokes, Theorem 1.1 and Corollary 10.6; this project did not produce the construction.",
+        "proof_status": "External published written proof of forced breakdown, including periodic alternative D; unforced ROOT is a different target.",
+        "review": "Bounded AI-agent source audit found matching reference/solution definitions and theorem headers, and no identified statement defect. The 580-module local solution import closure excludes the challenge placeholders. Complete proof audit and external expert acceptance are not recorded.",
+        "formalization": "Native Lean 4.34.0-rc2 build PASS at pinned commit 8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538: all 580 project-local dependency modules compiled from unchanged sources using matching cached Mathlib artifacts. Both exported targets printed only propext, Classical.choice, Quot.sound. Challenge placeholders are excluded from the solution import closure. The stronger bundled-kernel imported-closure replay remains incomplete: an earlier attempt hit its 600-second limit, and a later attempt was stopped after 1485.74 seconds under severe host memory and swap pressure (exit 143, empty buffered log). Neither outcome is a proof rejection or a passing check. Independent Comparator/Nanoda not run."
+      },
+      "contract": {
+        "assumptions": [
+          "Ordinary incompressible Navier–Stokes with any prescribed fixed nu > 0.",
+          "The imported construction uses initial velocity zero and a prescribed force smooth for all t >= 0, including through the breakdown time; velocity and pressure are periodic."
+        ],
+        "domain": "Periodic alternative D: R^3/Z^3, with a smooth constructed solution on 0 <= t < T for a finite T > 0 and a force defined for all t >= 0. The exported theorem states nonglobal solvability without fixing T.",
+        "norms": [
+          "The inspected candidate witness has limsup as t approaches its finite terminal time T of ||u(t)||_infinity equal to infinity. This property belongs to the witness, not the exported nonexistence theorem type.",
+          "For every spatial multi-index alpha, time derivative order m, and N > 0, sup_x |partial_x^alpha partial_t^m f(t,x)| <= C_(alpha,m,N)(1+t)^(-N); compact time support is provided."
+        ],
+        "coordinate_convention": "Unit-period spatial coordinates. The inspected arbitrary-viscosity adapter uses u_nu(t,x)=nu*u_1(nu*t,x), hence T=1/nu. The paper normalizes its whole-space theorem to time 1; that is not a time parameter in the exported comparator theorem. Conversion to the local two-pi torus requires consistent NS rescaling.",
+        "quantifiers": [
+          "For every nu > 0 there exists one such force with zero initial velocity for which no global smooth periodic velocity and pressure solve the equation.",
+          "The force is globally smooth through the finite terminal time T; this does not require it to vanish at every spatial point at T. The theorem does not set the force to zero."
+        ]
+      }
+    },
+    {
+      "id": "phase-covariance-replacement",
+      "title": "Phase freedom in the leading covariance",
+      "status": "KERNEL-CHECKED",
+      "verification_label": "Local Lean module compiled and module-only kernel replay passed; separate AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "A local corollary of the external actual periodized primary-covariance theorem: independently shifting the common radial and tangential phase within each signed slot preserves both leading radial-tangential covariance components, under every original geometric, partition, cone and scale hypothesis.",
+      "depends_on": [],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_EXTERNAL_COMPONENT_EXTRACTION_2026_09_08.md",
+        "formalization/phase_covariance/PhaseCovariance.lean",
+        "formalization/phase_covariance/README.md",
+        "formalization/phase_covariance/receipt.json"
+      ],
+      "excludes": "No claim about all entries of the covariance tensor, the full curl-corrected velocity, arbitrary phase regularity, a material-derivative bound, an actual replacement in the complete iteration, or a new NS singularity. No priority claim for phase invariance.",
+      "evidence": {
+        "provenance": "Local teaching corollary derived directly from OpenAI/NavierStokesAndEuler physical_primary_covariance at pinned commit 8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538. The pulse construction and analytic input are upstream work.",
+        "proof_status": "Restricted exact covariance corollary proved in Lean and explained in the extraction note.",
+        "review": "Separate AI-agent review of the downstream phase-transport limitation; root source and scope review. No external expert acceptance claimed.",
+        "formalization": "Lean 4.34.0-rc2 compilation and bundled module-only leanchecker replay both exited zero. Reported axioms: propext, Classical.choice, Quot.sound. The local receipt does not claim fresh replay of imported proofs or an independently implemented verifier."
+      },
+      "contract": {
+        "assumptions": [
+          "A supplied upstream SlotSystem with positive radius, the specified quotient-injective oriented slots and the required adjacency-based support separation; nonzero determinant of the two plane vectors.",
+          "N >= 1; the complete two-slot PairData family at tail labels, with continuous pulse data, supported cutoff, positive transverse scales and nonzero integer angular modes.",
+          "0 < q <= Q_N; the prescribed physical masks and targets satisfy the strict covariance cone on each active label.",
+          "Only the phase field of PairData changes: the same arbitrary added phase is used in both radial and tangential components of its slot."
+        ],
+        "domain": "Auxiliary unit-periodic two-dimensional spatial coordinates Y and the 2pi-periodic angular coordinate theta, at each admissible fixed physical scale q and position.",
+        "norms": [
+          "Observable: first take the normalized angular average, then the unit-square spatial integral of each radial-tangential product. This is an iterated covariance identity, not a norm bound or a full physical stress tensor identity."
+        ],
+        "coordinate_convention": "Upstream q is a positive similarity scale, not the local background velocity previously named q. Q_n=2^(-n), velocity exponent a_h=1/2+h.",
+        "quantifiers": [
+          "For every admissible upstream input family and every slotwise phase addition, each i in Fin 2 has exactly the same leading covariance q^(-1-h)*(T0)_i. No smoothness of arbitrary phase additions is inferred."
+        ]
+      }
+    },
+    {
+      "id": "E-prime",
+      "title": "The E-prime sufficient target",
+      "status": "OPEN",
+      "verification_label": "Open — the sufficient hypothesis is unproved",
+      "scope": "The pointwise sufficient target retains the exact formulation and hypotheses of the source; it is not the retired rung-average hypothesis.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_ROUTE_CLASSIFICATION_2026_09_06.md"
+      ],
+      "excludes": "No proof of this target or strictly easier reduction of ROOT is supplied.",
+      "evidence": {
+        "provenance": "Local sufficient-condition program for the classical unforced problem.",
+        "proof_status": "Open hypothesis; its conditional implication to ROOT does not establish the hypothesis.",
+        "review": "not recorded",
+        "formalization": "No proof of E-prime is recorded; the separate local cone-algebra certificate does not cover it."
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-growth-set-osgood",
+      "title": "Averaged-noncollapse regularity route",
+      "status": "DEAD",
+      "verification_label": "Retired route — the required hypothesis conflicts with the finite energy cap",
+      "scope": "The attempted Q-GSO/M-GSO noncollapse route is retired by the unconditional finite-energy cap. Historical conditional implications retain their logical scope.",
+      "depends_on": [
+        "nse-qgso-cap-vacuity"
+      ],
+      "sources": [
+        "docs/NSE_QGSO_CAP_VACUITY_2026_09_06.md"
+      ],
+      "excludes": "Do not reinterpret historical OPEN labels as current targets.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Retired regularity route: the written conditional implications remain valid, but the required divergent averaged-price hypothesis conflicts with the finite energy cap.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-qgso-cap-vacuity",
+      "title": "The unconditional cap correction",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; review not documented",
+      "scope": "Restricted corrective result: disjointness, the Betchov inequality and energy bound already cap the proposed sums.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_QGSO_CAP_VACUITY_2026_09_06.md"
+      ],
+      "excludes": "This refutes the research route, not global regularity.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written corrective proof from the energy identity, disjoint rung intervals, and the Betchov growth bound.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-frequency-activation-local",
+      "title": "Sparse local activation",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; review not documented; supporting exact algebra checks recorded",
+      "scope": "The finite-band real solenoidal datum and small perturbations in the source generate the stated mode on 0<t≤1/(512AN), for A≥νN, with an all-mode remainder bound.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_FREQUENCY_ACTIVATION_2026_09_08.md",
+        "experiments/nse_frequency_activation.py",
+        "tests/test_nse_frequency_activation.py",
+        "artifacts/enstrophy_sup/nse_frequency_activation.json"
+      ],
+      "excludes": "No critical-norm growth, infinite cascade, or global theorem.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written local theorem from the full projected equation and a convergent majorant; finite exact algebra checks are supporting controls.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-concentrated-packet-local",
+      "title": "Concentrated packet and local exclusion",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; separate model review recorded (reviewer identity not documented); external expert acceptance not recorded",
+      "scope": "Explicit order-L³-mode packet, persistent background strain, relative energy for arbitrary high seeds, and prescribed short-time distant-activation exclusion under stated seed/separation hypotheses.",
+      "depends_on": [
+        "nse-frequency-activation-local"
+      ],
+      "sources": [
+        "docs/NSE_CONCENTRATED_PACKET_2026_09_08.md",
+        "experiments/nse_concentrated_packet.py",
+        "tests/test_nse_concentrated_packet.py",
+        "artifacts/enstrophy_sup/nse_concentrated_packet.json"
+      ],
+      "excludes": "No smoothness theorem for arbitrary L² seeds or exclusion at later times.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written local theorem using classical expansions and relative energy.",
+        "review": "Separate model review of formulas, weak-solution scope, and accumulated gain recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-steady-background-local",
+      "title": "Steady Euler reference and NS comparison",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; mathematical review recorded (reviewer type not documented); external expert acceptance not recorded",
+      "scope": "For one fixed compact steady Euler profile, a classical strong-norm NS comparison closes over a logarithmic small-viscosity interval. The specified pressure-normal periodic carrier has two unit polarization multipliers.",
+      "depends_on": [
+        "external-compact-euler",
+        "external-angle-action"
+      ],
+      "sources": [
+        "docs/NSE_STEADY_BACKGROUND_2026_09_08.md",
+        "experiments/nse_steady_background.py",
+        "tests/test_nse_steady_background.py",
+        "artifacts/enstrophy_sup/nse_steady_background.json"
+      ],
+      "excludes": "This comparison theorem alone does not establish high-seed amplification; no uniformity over varying reference profiles.",
+      "evidence": {
+        "provenance": "Local classical comparison using imported compact steady Euler geometry.",
+        "proof_status": "Written small-viscosity comparison and restricted carrier-ODE obstruction.",
+        "review": "Mathematical review recorded; reviewer type and external expert acceptance: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "external-compact-euler",
+      "title": "Compact steady Euler profile existence",
+      "status": "IMPORTED",
+      "verification_label": "Imported published theorem (Gavrilov; Constantin–La–Vicol); used as an input",
+      "scope": "The source invokes Gavrilov and Constantin–La–Vicol for compact smooth stationary Euler profiles.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_STEADY_BACKGROUND_2026_09_08.md"
+      ],
+      "excludes": "An Euler profile is not a stationary unforced positive-viscosity NS solution.",
+      "evidence": {
+        "provenance": "Imported: Gavrilov; alternative construction by Constantin–La–Vicol.",
+        "proof_status": "Published compact stationary Euler existence theorems, used as inputs; they are not stationary unforced Navier–Stokes theorems.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "external-angle-action",
+      "title": "Particle angle-action coordinates",
+      "status": "IMPORTED",
+      "verification_label": "Imported published theorem (Baldi); used within its stated coordinate region",
+      "scope": "The fixed compact annulus uses Baldi’s particle-coordinate result as identified in the source.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_STEADY_BACKGROUND_2026_09_08.md"
+      ],
+      "excludes": "Particle coordinates alone do not establish polarization instability.",
+      "evidence": {
+        "provenance": "Imported: Baldi, periodic angle-action description of the selected Gavrilov flow.",
+        "proof_status": "Published geometric theorem used within its stated coordinate region.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-gavrilov-oblique-instability",
+      "title": "Expanding oblique principal polarization",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; two mathematical reviews recorded (reviewer type not documented); separate cone-algebra Lean module checked",
+      "scope": "For the specified compact Gavrilov profiles, pressure cutoffs and rational action tori, all sufficiently large j admit a returning oblique covector with a real expanding inviscid principal polarization Floquet multiplier. Relative multipliers tend to exp(±4π/3); the source proves an eventual lower bound exp(13π/12).",
+      "depends_on": [
+        "nse-steady-background-local",
+        "external-angle-action",
+        "external-compact-euler"
+      ],
+      "sources": [
+        "docs/NSE_GAVRILOV_OBLIQUE_2026_09_08.md",
+        "experiments/nse_gavrilov_oblique.py",
+        "tests/test_nse_gavrilov_oblique.py",
+        "artifacts/enstrophy_sup/nse_gavrilov_oblique.json"
+      ],
+      "excludes": "Existential threshold only; no computed j0. This principal-ODE theorem alone does not establish finite-wavelength viscous NS seed amplification, profile-family-uniform NS comparison, or an infinite cascade.",
+      "evidence": {
+        "provenance": "Local principal-polarization calculation using imported Gavrilov geometry.",
+        "proof_status": "Written inviscid ODE instability proof on the selected fixed profiles; the profile threshold is existential.",
+        "review": "Two mathematical reviews recorded for the thin jet, cutoff, return, and lift; reviewer type and external expert acceptance: not recorded.",
+        "formalization": "Partial local Lean coverage of the separate cone algebra only; geometric convergence, ODE cone invariance, monodromy, and the PDE application are not covered."
+      },
+      "contract": null
+    },
+    {
+      "id": "high-seed-realization",
+      "title": "Inherited seeds and scale-uniform iteration",
+      "status": "OPEN",
+      "verification_label": "Open — full realization and iteration obligation unclosed",
+      "scope": "Finite nonlinear handover with both seeds supplied at original time zero, and a late-seed outgoing-wave linearized gain, are established separately. Generating or inheriting the next seed from the resulting state, a subsequent nonlinear stage, uniform interstage errors, and one smooth datum for infinitely many stages remain open.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_RESEARCH_STRATEGY_2026_09_08.md"
+      ],
+      "excludes": "No claimed chain of proved dependencies reaches ROOT.",
+      "evidence": {
+        "provenance": "Local research obligation in the unforced program.",
+        "proof_status": "Open full realization/iteration obligation; the later finite varying-data results do not close it.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "oblique-cone-algebra",
+      "title": "Conditional cone algebra in Lean",
+      "status": "KERNEL-CHECKED",
+      "verification_label": "Local Lean module compiled and declaration replay passed; hypotheses supplied, not proved; full imported-closure replay not completed",
+      "scope": "Original basis inverse and conjugacy, inward slope margins ±23/48 assuming coefficient errors ≤1/12, and conditional expansion coefficient ≥13/24. Lean 4.28.0 compilation and bundled new-module declaration replay passed against the pinned imported environment.",
+      "depends_on": [],
+      "sources": [
+        "docs/NSE_FLUID_LEAN_INTEGRATION_2026_09_08.md",
+        "formalization/oblique_cone/NSEObliqueCone428.lean",
+        "formalization/oblique_cone/receipt.json",
+        "formalization/oblique_cone/README.md"
+      ],
+      "excludes": "No formalized ODE invariance, Gavrilov coefficient convergence, monodromy fixed point, localized NS amplification, or ROOT. Full fresh imported-closure replay timed out.",
+      "evidence": {
+        "provenance": "Local conditional algebra module for the oblique-carrier argument.",
+        "proof_status": "Conditional conjugacy, inverse-basis, cone-face, and expansion-rate algebra; the hypotheses are supplied rather than proved by this module.",
+        "review": "Local compiler, axiom-printout, and declaration-replay receipts recorded; external expert review: not recorded.",
+        "formalization": "Lean 4.28.0 compilation and leanchecker declaration replay succeeded for NSEObliqueCone428 with propext, Classical.choice, and Quot.sound. Fresh replay of the full imported closure timed out. No analytic ODE invariance, Gavrilov convergence, NS theorem, or ROOT proof is certified."
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-viscous-packet-amplification",
+      "title": "Finite supplied-seed full-NS amplification",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; linear and nonlinear reviews recorded (reviewer type not documented); external expert acceptance not recorded",
+      "scope": "One frozen compact profile and orbit, fixed physical viscosity, changing smooth initial data indexed by L: actual Fourier high-pass gain at least a₁ ε^(−μc) at the prescribed finite time. The same construction excludes the old absolute activation target throughout its window and keeps the rescaled perturbation small in H³.",
+      "depends_on": [
+        "nse-gavrilov-oblique-instability",
+        "nse-steady-background-local"
+      ],
+      "sources": [
+        "docs/NSE_VISCOUS_PACKET_2026_09_08.md",
+        "experiments/nse_viscous_packet.py",
+        "tests/test_nse_viscous_packet.py",
+        "artifacts/enstrophy_sup/nse_viscous_packet.json"
+      ],
+      "excludes": "No inherited seed, strain takeover in this regime, effective numerical scale threshold, infinite cascade, or formal NS certificate.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written finite supplied-seed amplification and activation-exclusion theorem; initial data vary with scale.",
+        "review": "Linear and nonlinear mathematical reviews recorded; reviewer type and external expert acceptance: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-wave-handover-obstruction",
+      "title": "Wave cancellation and generic stability obstruction",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; review not documented",
+      "scope": "Exact single-phase self-interaction cancellation; explicit solenoidal errors with initial energy growth at the fast a/h scale; explicit pressure-generated normal slow velocity. Restricted initial identities and insufficiency result.",
+      "depends_on": [
+        "nse-viscous-packet-amplification"
+      ],
+      "sources": [
+        "docs/NSE_WAVE_HANDOVER_2026_09_08.md",
+        "experiments/nse_wave_handover.py",
+        "tests/test_nse_wave_handover.py",
+        "artifacts/enstrophy_sup/nse_wave_handover.json"
+      ],
+      "excludes": "No sustained-growth theorem, exclusion of every prepared construction, or singularity.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written exact self-cancellation, arbitrary-error cost, and pressure-mean calculations; these concern the specified fields and operators.",
+        "review": "not recorded",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-loglog-strain-handover",
+      "title": "Log-log supplied-seed strain handover",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "Restricted reviewed analytic theorem for one frozen profile, fixed physical viscosity and changing smooth initial data: ε=νh⁴, δ=√h, ℓ=√log(1/h), T=(2/μ)log ℓ. Full mean and harmonic corrections close an H¹² strong bootstrap; perturbation strain starts O(1/ℓ) and reaches at least cℓ at a reference Euler trajectory location in rescaled coordinates.",
+      "depends_on": [
+        "nse-gavrilov-oblique-instability",
+        "nse-steady-background-local",
+        "nse-wave-handover-obstruction"
+      ],
+      "sources": [
+        "docs/NSE_LOGLOG_HANDOVER_2026_09_08.md",
+        "experiments/nse_loglog_handover.py",
+        "tests/test_nse_loglog_handover.py",
+        "artifacts/enstrophy_sup/nse_loglog_handover.json"
+      ],
+      "excludes": "No identification with the perturbed material trajectory, fixed-viscosity small-data C¹ instability, effective minimum L, formal NS certificate, nonlinear next-stage transfer, infinite cascade, or ROOT. The earlier absolute activation target remains excluded.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written finite strain-handover theorem with separate strong continuation.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-outgoing-wave-linearized",
+      "title": "Finer-wave gain in the outgoing NS linearization",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; derivation and assembled-proof reviews recorded (reviewer type not documented); external expert acceptance not recorded",
+      "scope": "Restricted reviewed linearized theorem: around the actual smooth first-stage NS solution, a real unit-L² exactly solenoidal seed specified at t₀=Tₕ−ℓ^(−3/4), of wavelength h^(3/2) and width h^(5/4), reaches radial high-pass norm at least cℓ^(1/4) at Tₕ, with all-mode error h^(1/4−o(1)). Fixed physical viscosity and changing first-stage data; actual-characteristic phase tracking is proved separately.",
+      "depends_on": [
+        "nse-loglog-strain-handover"
+      ],
+      "sources": [
+        "docs/NSE_OUTGOING_WAVE_2026_09_08.md",
+        "experiments/nse_outgoing_wave.py",
+        "tests/test_nse_outgoing_wave.py",
+        "artifacts/enstrophy_sup/nse_outgoing_wave.json"
+      ],
+      "excludes": "No nonlinear second handover, compatible original time-zero seed, expanding shear Floquet multiplier, effective minimum scale, formal PDE certificate, infinite iteration, or ROOT.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written theorem for the exact viscous linearization about the actual first-stage flow; the finer seed is supplied at a late time.",
+        "review": "Derivation and assembled-proof reviews recorded; reviewer type and external expert acceptance: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-original-time-nonlinear-handover",
+      "title": "Original-time finite nonlinear handover",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "One fixed unscaled compact profile, fixed physical viscosity and varying smooth data. Both waves are supplied at original time zero. The finer seed starts with rescaled C1 size O(ell^(-5/8)), yields added strain at least c ell^(11/8) at a base-q particle, and has whole-flight integrated gradient O(ell^(11/8)). Full pressure and H12 continuation give C1 tracking h^(1/48-o(1)). Written theorem with separate agent reviews.",
+      "depends_on": [
+        "nse-loglog-strain-handover",
+        "nse-gavrilov-oblique-instability"
+      ],
+      "sources": [
+        "docs/NSE_ORIGINAL_NONLINEAR_HANDOVER_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_MATCHING_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_SMOOTH_SEED_SUPPLY_2026_09_08.md",
+        "experiments/nse_original_handover.py",
+        "tests/test_nse_original_handover.py",
+        "artifacts/enstrophy_sup/nse_original_handover.json"
+      ],
+      "excludes": "No new-frequency generation, one-data infinite iteration, prescribed high-pass result, effective threshold, novelty, external expert acceptance or formal PDE certificate. Small initial C1 is in rescaled coordinates.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written nonlinear handover theorem with both waves in the original datum; the datum varies with scale.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-localized-profile-handover",
+      "title": "Finite handover with a heat-evolved flat profile",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "Restricted written analytic extension for one fixed smooth odd periodic phase profile, one fixed compact background and fixed physical viscosity, with initial data varying with h. The full phase mean, all Fourier corrections, pressure and separate H12 continuation retain C1 tracking h^(1/48-o(1)). At the finite endpoint, an actual rescaled NS solution has a ball of radius c h^(3/2) on which its gradient differs from the stated constant matrix by at most h^(1/48-o(1)). The receiver is supplied at original time zero.",
+      "depends_on": [
+        "nse-original-time-nonlinear-handover"
+      ],
+      "sources": [
+        "docs/NSE_LOCALIZED_PROFILE_2026_09_08.md",
+        "docs/NSE_NEXT_SEED_ANALYSIS_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FLAT_PROFILE_SEED_COST_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_PROFILE_EXTENSION_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_profile_extension_2026_09_08.py"
+      ],
+      "excludes": "No exactly affine patch, persistence of the endpoint region, generated next seed, one-datum infinite trajectory, uniformity over varying phase profiles, formal PDE certificate or solution of ROOT or FORCED-D. Review is by AI agents, not external expert acceptance. The fixed flat profile retains the full-support C3 seed cost.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written finite-profile extension, endpoint region, and finer-frequency exclusion.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-later-flow-core",
+      "title": "A short continuation and transported region in the same flow",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "Restricted written finite theorem with AI-agent review. The existing unforced solution and original datum continue another c ell^(-27/8); an actual transported radius-c h^(3/2) region retains rescaled gradient error O(ell^(-1/4)) through an additional ell^(-5). Full nonlocal pressure, diffusive leakage and a separate H12 continuation argument are included.",
+      "depends_on": [
+        "nse-localized-profile-handover"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_LATER_FLOW_ATTEMPT_2026_09_08.md",
+        "docs/NSE_NEXT_TRANSFER_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_annular_geometry_2026_09_08.py"
+      ],
+      "excludes": "The actual future source has an upper bound only. No signed next-seed lower bound, new handover, higher-jet persistence, infinite trajectory, formal PDE certificate or global solution. The fine-frequency exclusion persists.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written continuation and transported-core theorem for the same actual flow over the specified additional interval.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-forced-fixed-annulus",
+      "title": "Why a fixed axisymmetric annulus cannot contain viscous breakdown",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "Classical regularity argument at a restricted geometric scope, rederived and AI-agent reviewed here. A full compact axisymmetric velocity uniformly away from a fixed axis, with ordinary positive viscosity and admissible smooth forcing, continues past a finite candidate terminal time. Includes the stated smooth compact embedding in a fixed periodic domain with periodic pressure.",
+      "depends_on": [],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_FIXED_ANNULUS_OBSTRUCTION_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_VISCOUS_STAGE_ATTEMPT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FORCE_GAIN_AUDIT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_annular_geometry_2026_09_08.py"
+      ],
+      "excludes": "Not a general NS regularity theorem. Does not exclude finite gain, an axis-approaching flow, noncompact or nonaxisymmetric components, or a merely local axisymmetric core. It prevents retaining the released Euler construction's entire annular support geometry for the desired viscous breakdown.",
+      "evidence": {
+        "provenance": "Local derivation of a classical geometric continuation obstruction with smooth forcing.",
+        "proof_status": "Written continuation theorem for the full velocity in the stated fixed-axis annular class; it does not exclude general three-dimensional forced breakdown.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-logarithmic-host",
+      "title": "The same supplied wave after its focus",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "Restricted finite written theorem, separately reviewed by AI agents. For a sufficiently small fixed eta, the same original datum continues to t_f+log(ell)/(8mu)+log(eta)/mu. Rescaled added strain reaches order eta ell^2; whole strain history retains the same small coefficient, and full nonlinear C1 tracking is at most h^(1/96). Complete pressure, heat/profile corrections and a separate H12 continuation are included.",
+      "depends_on": [
+        "nse-localized-profile-handover"
+      ],
+      "sources": [
+        "docs/NSE_LOGARITHMIC_HOST_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_HOST_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_ERROR_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_postfocus_2026_09_08.py"
+      ],
+      "excludes": "Initial data still vary with h. No newly generated phase, infinite cascade, full formal PDE certificate or global solution. The shrinking almost-affine region is an endpoint estimate; dominant next-scale strain remains excluded.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written finite continuation theorem for the same original datum at each scale and small fixed eta.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-finite-depth-profile",
+      "title": "A finite correction depth and a bound on finer frequencies",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; separate AI-agent reviews recorded; external expert acceptance not recorded",
+      "scope": "For fixed eta>0 and a sufficiently large finite J fixed before h tends to zero, the existing original-data unforced Q_h is tracked through t_eta by a full pressure/mean/profile approximation with integrated L2 residual h^((29+2J)/8)E and C1 error h^((19J-17)/96-C_*eta-o(1)); E is subpower for fixed indices. For every fixed beta>3/2 and P>0, choosing a finite derivative order and J before h gives sup_[0,t_eta] ||grad P_(>h^(-beta))Q_h||infinity<=h^P. The initial datum varies with h but does not change with proof indices.",
+      "depends_on": [
+        "nse-logarithmic-host"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_FINER_SCALE_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_source_depth_2026_09_08.py"
+      ],
+      "excludes": "Separate AI-agent reviews of recurrence and finer-scale corollary plus root read. Global mean norms, all ordered interactions, sharp projection of the error via H3, expanding-torus normalization and separate H12 continuation are included. No formal PDE certificate, external expert acceptance or global solution.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written recurrence, continuation, and finer-tail corollary; depth and horizon parameters are fixed before the scale limit.",
+        "review": "Separate AI-agent reviews of the recurrence and finer-tail consequence recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-threed-forced-stage",
+      "title": "An actual finite three-dimensional forced stage",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; separate AI-agent reviews recorded; external expert acceptance not recorded",
+      "scope": "An explicit smooth compact periodic three-dimensional host equals Ax, A=diag(lambda,2lambda,-3lambda), in its core. Its localized curl wave has plateau velocity gain exp(3Theta-(nu K^2/(2lambda))(1-exp(-2Theta))), exceeding 12 for lambda=nu K^2 and Theta=1. Full pressure, viscosity, localization, activation and return force terms and every fixed mixed derivative are specified. A finite example can start and end at rest with smooth compact-time forcing. A pressure-independent circulation lower bound applies to the specified unchanged cutoff strip.",
+      "depends_on": [],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_source_depth_2026_09_08.py"
+      ],
+      "excludes": "AI-agent full-stage review plus root read. The unchanged-strip obstruction permits new velocity corrections and changed geometry; a large gain ratio can coexist with a small absolute output. No infinite all-order force sequence or formal PDE certificate. A separate inherited-host review and exact full-residual controls also passed. Changing the interior velocity can change the force; the additive bound does not assume that mixed outgoing profiles automatically match a next stage.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written finite forced construction and restricted force-cost/inheritance obstructions for the specified unchanged fields.",
+        "review": "Separate AI-agent reviews of the finite stage and inheritance calculation recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-normal-source-transport",
+      "title": "A generated component survives exact linear transport",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "In the existing unforced varying-data family, let W=Q_h-q and let Z be the exact viscous linearization about the actual first-stage q with the original receiver as initial datum. The generated remainder N=W-Z has zero initial datum. For one fixed sufficiently small rescaled t0 independent of h and every 0<t<=t0, its original normal velocity and normal diagonal strain are bounded below by c t M_h kappa_h^4 and c t M_h kappa_h^5, respectively, where M_h~h^(27/4)ell^(-13/4), kappa_h=h^(-5/4)mathcal_E_h^(-2), and mathcal_E_h is the fixed preparation subpower majorant. No additional donor is supplied.",
+      "depends_on": [
+        "nse-logarithmic-host"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_ACTUAL_THIRD_SOURCE_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_source_depth_2026_09_08.py"
+      ],
+      "excludes": "Fixed small initial rescaled time only. The estimate concerns N=(Q_h-q)-Z, not a dominant component of Q_h. No postfocus sign, new short-wave phase, localized next receiver, infinite trajectory, formal PDE certificate or global solution follows. Review is by AI agents.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written transport and signed-source calculation on a fixed short interval of the same actual unforced flow.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-postfocus-source",
+      "title": "A generated intermediate band in the full flow",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; separate AI-agent reviews recorded; external expert acceptance not recorded",
+      "scope": "For the same original-data unforced Q_h and fixed sufficiently small eta, the signed generated remainder survives focus. An explicitly defined smooth intermediate annular filter B_h has endpoint velocity and symmetric-strain lower scales h^(7/4+o(1)) and h^(1/2+o(1)) in full Q_h. The initial band has upper scales h^(2-o(1)) and h^(3/4-o(1)). Separate full-band estimates for q and the exact linear receiver Z prevent cancellation. N=(Q_h-q)-Z has sup C1 at most C h^(1/96) and whole current-window gradient integral at most C h^(1/96) log ell, tending to zero.",
+      "depends_on": [
+        "nse-normal-source-transport",
+        "nse-logarithmic-host"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_REVIEW_2026_09_08.md",
+        "experiments/nse_postfocus_normal_source_checks.py",
+        "experiments/nse_coarse_band_linear_checks.py"
+      ],
+      "excludes": "Fixed profile, sufficiently small fixed eta and finite indices precede h tending to zero; data still vary with h. The measured band is coarser than the supplied receiver. No later-time exclusion, full-field component dominance, formal PDE certificate, external expert acceptance or global result. Reviewed written analysis by AI agents.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written signed postfocus source, full-flow intermediate-band comparison, and associated affine transport calculation.",
+        "review": "Separate AI-agent reviews of the source, full-flow band, and affine calculation recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-coupled-forced-stages",
+      "title": "The full force of opposing and cyclic waves",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review recorded; external expert acceptance not recorded",
+      "scope": "For the specified compact forced extensions of the affine-core stage, all pressure, localization, activation and fixed mixed force derivatives are retained. Opposing waves can have zero instantaneous interior force at equal frequency q, while the mixed spatial/time force derivative is at least 4 lambda ab q^2 on the stated plateau. A supplied three-direction cycle has P′=-nu(kappa^2+ell^2+m^2)P and exact quadratic feedback gradient S^2; specified surviving loops give pressure-independent force costs.",
+      "depends_on": [
+        "nse-threed-forced-stage"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_TWOWAY_FORCED_COUPLING_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_CYCLIC_FORCED_COUPLING_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_COUPLED_STAGES_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_coupled_stages_2026_09_08.py"
+      ],
+      "excludes": "Restricted unchanged-field and surviving-loop statements; they permit new interior velocity corrections. The reverse interior is planar, while the cycle uses all three directions. Instantaneous spectra do not control nonnormal propagation. No universal force obstruction or infinite construction. Reviewed written analysis by AI agents.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written complete residuals and pressure-independent force restrictions for the specified reverse pair and three-direction cycle; corrected velocities are outside the obstruction.",
+        "review": "AI-agent mathematical review recorded at the stated scope; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-periodic-cycle-transfer",
+      "title": "Actual nonlinear transfer can raise total enstrophy",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent reviews recorded; external expert acceptance not recorded",
+      "scope": "For u0=A(sin(qx2),sin(qx3),sin(qx1)), integer q>=1, ordinary nu>0 and mu=nu q/A sufficiently small, the actual unforced periodic solution generates its initially absent sqrt(2)q shell. With tau=Aq t, full pressure-corrected jets and a uniform Sobolev remainder give Q(tau)/Q0=1-2mu tau+(1/2+2mu^2)tau^2+O(tau^3). One fixed tau0>0 and all 0<mu<=tau0/16 give Q(tau0)>=Q0(1+tau0^2/8), despite initial viscous decline. Kinetic energy decreases.",
+      "depends_on": [
+        "nse-frequency-activation-local"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_periodic_cycle_transfer_2026_09_08.py",
+        "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_cycle_point_feedback_2026_09_08.py"
+      ],
+      "excludes": "A common spatial translation of the original activation prototype, extended to second-order pressure and total enstrophy. Finite gain only; no L-infinity velocity amplification, shape return, infinite transfer, formal PDE certificate or NS solution claim. Reviewed written analysis by AI agents.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written full-pressure short-time expansion, uniform remainder, and finite enstrophy-gain theorem for the actual periodic solution.",
+        "review": "AI-agent reviews of the finite transfer and subsequent point-pressure diagnostic recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": null
+    },
+    {
+      "id": "nse-diagonal-window",
+      "title": "An arbitrarily slow growing comparison window",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent review and coordinating-agent read recorded; external expert acceptance not recorded",
+      "scope": "For the same fixed smooth-profile varying-data family, there exists an integer staircase eta(h) tending to infinity sufficiently slowly, with finite J(h),r(h), such that the actual unforced Q_h is smooth through t_f+log(ell)/(8mu)+log(eta(h))/mu. Its full C1 approximation error is at most h^eta(h), its endpoint symmetric strain and whole gradient clock are comparable to eta(h)ell^2, and every fixed finer-power tail beta>3/2 is smaller than every fixed power h^P. The schedule may be chosen below any prescribed divergent bound.",
+      "depends_on": [
+        "nse-finite-depth-profile",
+        "nse-logarithmic-host"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_REVIEW_2026_09_08.md"
+      ],
+      "excludes": "Existential schedule only; no prescribed growth rate for arbitrary smooth profiles. Initial data depend on h but not proof indices. Same-datum uniqueness identifies the compared solutions. Absolute Fourier sums supply tail monotonicity. No one-datum infinite trajectory, formal PDE certificate or global result.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written existential diagonal corollary of reviewed fixed-parameter estimates; it provides no prescribed growth rate or single-data infinite trajectory.",
+        "review": "AI-agent review and coordinating-agent read recorded for the same-datum quantifiers, endpoint/clock constants, continuation, and Fourier tail; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": {
+        "assumptions": [
+          "Fix one of the reviewed sufficiently thin smooth Gavrilov profiles, the two original smooth packets, and physical viscosity nu > 0 before taking the scale limit.",
+          "Use the full unforced solution Q_h with the original datum, including both supplied waves; finite correction depth and derivative orders do not change that datum."
+        ],
+        "domain": "Rescaled torus (R/(2pi L Z))^3, h=L^(-1/10) for sufficiently large integers L, on 0 <= t <= T_h.",
+        "norms": [
+          "sup_[0,T_h] ||Q_h-U_(J(h))||_(C^1) <= h^(eta(h)).",
+          "Endpoint |S(Q_h-q_h)(T_h,Y_h(T_h))|_F and integral_0^T_h ||grad Q_h||_infinity dt are each comparable to eta(h) ell^2, with positive constants independent of h.",
+          "For every fixed beta > 3/2 and P > 0, sup_[0,T_h] ||grad P_(>h^(-beta))Q_h||_infinity <= h^P for sufficiently small h; the proof controls the absolute Fourier gradient tail."
+        ],
+        "coordinate_convention": "All displayed times and norms are rescaled: epsilon=nu h^4, ell=sqrt(log(1/h)), k=h^(3/2), d=h^(5/4). L2 uses unnormalized Lebesgue measure and Fourier coefficients are normalized by torus volume. S(v)=(grad v+grad v^T)/2; Y_h is a q_h particle used as a test location, not a Q_h particle. Physical time equals h^24 times rescaled time.",
+        "quantifiers": [
+          "There exist integer-valued eta(h), J(h), r(h), finite at every h and tending to infinity sufficiently slowly, for which the same actual Q_h exists through T_h=t_f+log(ell)/(8mu)+log(eta(h))/mu, with t_f=2log(ell)/mu-ell^(-3/4) and fixed profile exponent mu > 0.",
+          "The schedules may be chosen below any prescribed divergent bound. No prescribed rate is obtained. The data depend on h, not on the proof indices; no infinite correction series at a fixed h or infinite transfer in one datum is asserted."
+        ]
+      }
+    },
+    {
+      "id": "nse-cycle-speed-loss",
+      "title": "Strain energy can rise while maximum speed falls",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; AI-agent reviews and separate exact Fourier controls recorded; external expert acceptance not recorded",
+      "scope": "For the actual periodic solution U_mu from (sin y,sin z,sin x), one fixed short T_*>0 works uniformly for 0<=mu<=1 and gives ||U_mu(tau)||infinity^2<=3-3mu tau-(4/5)tau^4 on 0<tau<=T_*. For sufficiently small positive mu, strain energy increases at a time in this same interval while maximum speed decreases. The full Euler moving-maximum expansion is 3-(8/5)tau^4+O(tau^5), with positive-viscosity correction -6mu tau+O(mu tau^2).",
+      "depends_on": [
+        "nse-periodic-cycle-transfer"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/support/check_cycle_next_transfer_2026_09_08.py",
+        "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_REVIEW_2026_09_08.md"
+      ],
+      "excludes": "Full pressure, all eight initial moving maxima and an actual uniform local PDE remainder are retained. This restricts early maximum-speed gain for this datum, not later times or other flows. Exact finite Fourier controls are not a PDE certificate; no general maximum principle or global result.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Written actual-flow maximum-speed loss theorem with all-mode time remainders and a viscosity-uniform interval; the fixed-positive-amplitude extension has its own source.",
+        "review": "AI-agent analytic reviews and separate exact Fourier controls recorded; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": {
+        "assumptions": [
+          "Solve the full unforced incompressible equation with U_mu(0,x,y,z)=(sin y,sin z,sin x) and normalized viscosity 0 <= mu <= 1.",
+          "Pressure is the full periodic pressure with zero mean; all generated Fourier modes are retained."
+        ],
+        "domain": "The fixed torus (R/(2pi Z))^3 on a common sufficiently short interval 0 <= tau <= T_*.",
+        "norms": [
+          "M_mu(tau)=||U_mu(tau)||_infinity^2 uses the global maximum of the Euclidean velocity magnitude.",
+          "For 0 < tau <= T_*, M_mu(tau) <= 3-3mu tau-(4/5)tau^4.",
+          "The comparison has M_0(tau)=3-(8/5)tau^4+O(tau^5) and U_mu=U_0(tau)-mu tau U_init+O_(C^2)(mu tau^2), uniformly in mu; U_0(tau) here denotes the Euler solution."
+        ],
+        "coordinate_convention": "Normalized equation partial_tau U+(U.grad)U+grad Pi=mu Delta U. For physical datum A(sin(qy),sin(qz),sin(qx)), X=q x, tau=Aq t, U=u/A, and mu=nu q/A; q is a positive integer. The global maximum may move in space.",
+        "quantifiers": [
+          "There exists T_* > 0 independent of mu in [0,1] such that the stated loss holds for every 0 < tau <= T_*.",
+          "Positive-viscosity conclusions require mu > 0; mu=0 supplies the auxiliary Euler comparison. This is a finite-time statement about this datum, not a general velocity maximum principle."
+        ]
+      }
+    },
+    {
+      "id": "nse-growing-profile-window",
+      "title": "An explicit growing window for fixed Gevrey profiles",
+      "status": "PROVED",
+      "verification_label": "Written proof supplied; separate AI-agent reviews recorded; external expert acceptance not recorded",
+      "scope": "Choose one fixed Gevrey-2 member of the stated Gavrilov/two-packet class before h tends to zero, and fix positive physical viscosity. With eta=ell^(1/16), T=t_f+3log(ell)/(16mu), and J=ceil(K eta) for a sufficiently large fixed K, the same datum at each h has an actual smooth unforced Q_h through T. A finite pressure-complete approximation has gradient error at most h^eta. Endpoint added symmetric strain is comparable to eta ell^2. Uniform derivative estimates and the full mean/profile recurrence have logarithmic loss o(eta ell^2), paying the ordinary fixed-H12 continuation cost.",
+      "depends_on": [
+        "nse-finite-depth-profile",
+        "nse-logarithmic-host"
+      ],
+      "sources": [
+        "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_ASSEMBLY_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_REVIEW_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_2026_09_08.md",
+        "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_REVIEW_2026_09_08.md"
+      ],
+      "excludes": "Additional quantitative Gevrey hypothesis, realized by fixed cutoffs on a positive pressure annulus. Arbitrary old smooth cutoffs are not automatically covered at this rate. Datum still varies with h; no new seed, infinite correction series, infinite one-datum trajectory, terminal force or global result. Separate AI-agent background/operator/assembly reviews and root read; no formal PDE certificate or external expert acceptance.",
+      "evidence": {
+        "provenance": "Local analysis using classical PDE, ODE, or Fourier methods; no priority claim.",
+        "proof_status": "Restricted written quantitative growing-window theorem for one fixed Gevrey-2 profile choice; the datum varies with scale.",
+        "review": "Separate AI-agent reviews of the quantitative background, operators/recurrence, and continuation assembly, followed by coordinating-agent integration reads; external expert review: not recorded.",
+        "formalization": "not recorded"
+      },
+      "contract": {
+        "assumptions": [
+          "Choose one sufficiently thin fixed Gavrilov profile and the two original packets with the quantitative Gevrey-2 cutoffs and phase profile constructed in the background source.",
+          "Fix physical nu > 0, all profiles, and their Gevrey constants before h tends to zero. The full unforced datum Q_h(0) is unchanged when proof orders grow."
+        ],
+        "domain": "Rescaled torus (R/(2pi L Z))^3, h=L^(-1/10) for sufficiently large integers L, through T=t_f+3log(ell)/(16mu).",
+        "norms": [
+          "sup_[0,T] ||grad(Q_h-U_J)||_infinity <= h^eta and endpoint added symmetric strain has Frobenius magnitude comparable to eta ell^2 at the reference q_h particle.",
+          "The full approximation history is bounded by B eta ell^2+C ell^(15/8)+C I_q+o(1), where I_q <= C eta ell^(9/8)+C log ell.",
+          "The recurrence uses full derivative tensors, unnormalized L2, scaled norms S_r(v)=sum_(j=0)^r d^(j-3/2)||D^j v||_2, and weighted sums over every phase Fourier mode; strong continuation is a separate H12 estimate."
+        ],
+        "coordinate_convention": "All displayed times, gradients, and norms are rescaled: epsilon=nu h^4, ell=sqrt(log(1/h)), k=h^(3/2), d=h^(5/4), and mu > 0 is the fixed profile Floquet exponent, not viscosity. S(v)=(grad v+grad v^T)/2. Physical time equals h^24 times rescaled time.",
+        "quantifiers": [
+          "Set eta=ell^(1/16), J=ceil(K eta), and N=N0+8J, with sufficiently large fixed K and N0 chosen before h tends to zero. For all sufficiently small admissible h, the same original-data Q_h is smooth through T.",
+          "Here t_f=2log(ell)/mu-ell^(-3/4). The explicit rate uses the specified Gevrey-2 subclass; it is not asserted for arbitrary smooth profiles. Each h has finite time and finite correction depth, and changing h changes the initial datum."
+        ]
+      }
+    }
+  ],
+  "evidence_semantics": "`verification_label` is the reader-facing evidence summary. `status` is the legacy research-graph label retained in this JSON for continuity; the complete research graph is preserved in the private research archive, and the label is not a reader-facing certification. Provenance, proof_status, review and formalization are separate fields. Formal-check receipts name the statement, checker, axioms and outcome. A null contract means the complete prose scope and linked proof remain authoritative; it does not waive hypotheses.",
+  "verification_label_semantics": "Each entry states the strongest evidence recorded — a written proof, an AI-assisted review, a symbolic or Lean check, or an imported theorem — and what is missing, such as external expert acceptance.",
+  "source_hash_scope": "Primary files listed in claims[*].sources, pinned for this editable first-edition snapshot. The generated site register expands the snapshot to all linked companion sources.",
+  "source_sha256": {
+    "artifacts/enstrophy_sup/nse_concentrated_packet.json": "aaba1ec7087cb74ccca25f9f3f593458d76d20811b7e7f94f2e8f1d7915111d7",
+    "artifacts/enstrophy_sup/nse_frequency_activation.json": "48a887720c6d0b18aa8ee8465536ee10378528e9657d2336fae4baab2a315a38",
+    "artifacts/enstrophy_sup/nse_gavrilov_oblique.json": "4dffe7a6eb4d605545dcb5a698c89d353d7e04782c553fdfb0c4b18aa23afba4",
+    "artifacts/enstrophy_sup/nse_loglog_handover.json": "573eef89eb85f4d25e1e502113552d9cd1500756d70bc855fff9506b939463a2",
+    "artifacts/enstrophy_sup/nse_original_handover.json": "a99190e11e03e11ee790ca756de856c399f3d1d00c83a4191fb8ad269b7ed0e7",
+    "artifacts/enstrophy_sup/nse_outgoing_wave.json": "0580ceaf90549d8ce97021b771a54ebf338f719802424d9bd21762f9268a37da",
+    "artifacts/enstrophy_sup/nse_steady_background.json": "11168d8c2e68d226723b9f26e69fbc1e5d732344c4bcc2d7cbcee71c7f169aaf",
+    "artifacts/enstrophy_sup/nse_viscous_packet.json": "3269ef26385bca94e56a64ea8ebeac1991975a4cc6e699b642aba76be96c0e10",
+    "artifacts/enstrophy_sup/nse_wave_handover.json": "f3c5814d3fb59a8edaa02109313f94a13286dccf01386d32024f66a79bccf529",
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_2026_09_08.md": "2b2f6aeeef78374ff91b72322163f637d90e7b416e84a427d264c46c8f6740ea",
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_REVIEW_2026_09_08.md": "7d34e93a7ffd8698198a20f5f418f221ef2fb3cbf5a22f387e4daf2945fd5143",
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_THIRD_SOURCE_2026_09_08.md": "72d3f40159ace724a726af9a4ebacbc56c97e95c3ac5f1ae7420a5651b7d84de",
+    "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_2026_09_08.md": "e476ae3fc54b1e3093189e8181df007951b0ab9b8046a5054b7fd95a077ce457",
+    "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_REVIEW_2026_09_08.md": "53aeb5631d17ce57e8ac027e39f04791ae8bfdf4c4724771ebea3824787c0cd0",
+    "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_2026_09_08.md": "7776c7406c1b68a952b267fe34af26e17ab3031a5f3779b63e3081866556cf65",
+    "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_REVIEW_2026_09_08.md": "3bda30759729e7547ff9b3985701e00ef071769a8e212f8afff8b50a82d8b8f9",
+    "docs/ANALYSIS_NOTES/NSE_COUPLED_STAGES_REVIEW_2026_09_08.md": "288ee34951373629c8a02793e74f63a5663ebbd1f910bbb27269cc66ffdce663",
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_2026_09_08.md": "70b1e4d9fb0abccbbf743a3fa119729e9111ecd62eef3c340b17da1bc71021e0",
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_REVIEW_2026_09_08.md": "d17c32c3893dc31cb334818b46fedeab0611f7e6efcaa27e8e030b5c2d10c62c",
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_2026_09_08.md": "e8fc6743c9004680d501a6ab312730e02da1c92b06bbcd2437e5095b974c47b3",
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_REVIEW_2026_09_08.md": "7b4a0471fe2fc9148f3a3073e03472ff8cab527d15d458b1aa615ae9fea298ae",
+    "docs/ANALYSIS_NOTES/NSE_CYCLIC_FORCED_COUPLING_2026_09_08.md": "e76f1c7dfa255c14f3771c3d43a22dc6ac35192d98717afa3a4932fe355f323d",
+    "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_2026_09_08.md": "feb0e8d41b0746b737d6b0418d4b5dc0df0851e19b5bd7291a1fb2c006b1d235",
+    "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_REVIEW_2026_09_08.md": "527ddda99bd9e6418e9656a9b9b250577e770a5203f0ecc9b7d9ea86bf1397b4",
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_COMPONENT_EXTRACTION_2026_09_08.md": "0af299a206b1c6432e16f536d44b52a892ab40325e9ffe18c98707acdcd3fcdd",
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_STATEMENT_AUDIT_2026_09_08.md": "d7249545f0ce161e5f074ccd554c9f5ae7c5f6e163dd2c00700b0fa0ac94415e",
+    "docs/ANALYSIS_NOTES/NSE_FINER_SCALE_REVIEW_2026_09_08.md": "17d877dcc092c0586cbbb532da335b0a1669ff260379a171f6fdf2cd3a8373f6",
+    "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_2026_09_08.md": "909e21a42ddb67636f2f08e695111d07005ee0935c9d36a8991a2e7c0fa75c4e",
+    "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_REVIEW_2026_09_08.md": "7b4cc95fa5db65eb17a088a1551c2901e0b310a97f06ca6386d4ebb90321e3d0",
+    "docs/ANALYSIS_NOTES/NSE_FIXED_ANNULUS_OBSTRUCTION_2026_09_08.md": "3586321a95ba94ef71dde88e7a61f8c4936f319bf0fbc48a7a1f206fe4d83424",
+    "docs/ANALYSIS_NOTES/NSE_FLAT_PROFILE_SEED_COST_2026_09_08.md": "f15e6ccff790d8d638764d4fd9579cb5c751eb6bc5b9bb5022cdb50ba7e9c2b9",
+    "docs/ANALYSIS_NOTES/NSE_FORCE_GAIN_AUDIT_2026_09_08.md": "1bb6d01a538451771af5217464ca508f79f5994ca8c645c91857d874bd7faf00",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_2026_09_08.md": "87008c022f2def5df5c8eeef076d9535ff991fc1111ab864b0f9a64d8ebb789f",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_REVIEW_2026_09_08.md": "d8c102d721e9809bc65cad9dcf78bffd33588dfd7cb34e0edf9e79586540ee42",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_2026_09_08.md": "cb6189ebfb82a7038c12c2de051a052b02cead06686c7cea1b2f2a4d62afdc48",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_REVIEW_2026_09_08.md": "4cd6c64a444feb0fba6fd91415353f11c411712d33102355731c302dd6b77380",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_2026_09_08.md": "a54882be5ab52cdf987285bdbd579b6cc8f9a518eb6c8aa255e78dd35d00bc42",
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_REVIEW_2026_09_08.md": "2f08881a1691c072bfb11b78b1d9f3f77572f43002fddf58f21ccaa0886b2c67",
+    "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_2026_09_08.md": "9e39e482e374f6e27e393d434cd2b243f13a4c109563c8df7877eb07e182102b",
+    "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_REVIEW_2026_09_08.md": "cccb104102b8fcb3193fd07ba79ed085b9913b3fa6e6cd2719f2222d1f3c0d94",
+    "docs/ANALYSIS_NOTES/NSE_LATER_FLOW_ATTEMPT_2026_09_08.md": "d916b78b668e7e1a46a7cd3287fcdbb4ec8520d0212e7dcd3d15ec640601eb94",
+    "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_ERROR_REVIEW_2026_09_08.md": "999b44c59329eb9241be729ddb86dabd870e890df4bc79c851bd9b0c19601354",
+    "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_HOST_REVIEW_2026_09_08.md": "090eb9d4ad410768894d8c99ae840402d8a85e2816d6019ab9af96a8636b7323",
+    "docs/ANALYSIS_NOTES/NSE_MATCHING_REVIEW_2026_09_08.md": "68da29854c56e7eaa50233536622020eaeed94fa3d218d5c18e4b1f4b39d9d0e",
+    "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_2026_09_08.md": "f5da67ed4561a1cfd90a9f9272a09bfe954eeb1293a186cce428cca40b689d0d",
+    "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_REVIEW_2026_09_08.md": "00576f9596bafecb2a47d978cac5f13ca654899688c04633b94c64310781c4a4",
+    "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_2026_09_08.md": "9e4549fd9c0710e711c44ac742dec295d1fc0acd5f1292275579db099fdcc846",
+    "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_REVIEW_2026_09_08.md": "1ef6500757e7e0b4e7a4c4fa22521ec71d4c4b4a1a063471c8c19b8bccfada83",
+    "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_2026_09_08.md": "1682477e11fb3dedaa1bec477e921dd0dfe7373e2a10488d158c9244b6a7e320",
+    "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_REVIEW_2026_09_08.md": "c10f0b9a98a8842629a190b1562ff2a55c8b78ac0615ee1afbf769513c6506a3",
+    "docs/ANALYSIS_NOTES/NSE_PROFILE_EXTENSION_REVIEW_2026_09_08.md": "7993523e07f58e1251cf08c324218aecf2ede4f466d4c649332bb6002b7040ff",
+    "docs/ANALYSIS_NOTES/NSE_SMOOTH_SEED_SUPPLY_2026_09_08.md": "51fce0902e5335ce72ad79061cb2e47e293f73e181592af9cdcecdd8a55a4557",
+    "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_2026_09_08.md": "a7cc608ad90dd598d0b3a2b2bd36308b80f90d879fa062b8ea886d496909cb3f",
+    "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_REVIEW_2026_09_08.md": "13f79e47eb125c3727fd367c01078c2ab8e1befa8cacb654fcbccc127b583e96",
+    "docs/ANALYSIS_NOTES/NSE_TWOWAY_FORCED_COUPLING_2026_09_08.md": "0a02e18d37741b655de1c968a74039679f5c038fa799df445f8e01c318690884",
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_ASSEMBLY_REVIEW_2026_09_08.md": "29bf4ddcda6866ba662ff9999629da0c36be0dfc2c930dcead2f9f70c491ad7a",
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_2026_09_08.md": "8ff6f93a377898881fff8cb516652f8e3c2a1ed8a8becb614865be8630b8eb70",
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_REVIEW_2026_09_08.md": "27e34f211677cafccdef17a357276d217848636093eed4b0f2290469530835c2",
+    "docs/ANALYSIS_NOTES/NSE_VISCOUS_STAGE_ATTEMPT_2026_09_08.md": "a70a3c2acc887219dd146385eda3d2ca8a6f83eac7493d8f95a87699b188dd5f",
+    "docs/ANALYSIS_NOTES/support/check_annular_geometry_2026_09_08.py": "f92726bc34c24de9ac085615960ef6d2fa824217590b203977f369bccf72f7b4",
+    "docs/ANALYSIS_NOTES/support/check_coupled_stages_2026_09_08.py": "097f69a2df45555ef57f57cb7eacdf877804db86c8e39c40626509a0ccf87d9b",
+    "docs/ANALYSIS_NOTES/support/check_cycle_next_transfer_2026_09_08.py": "9c49093157f4889e2ffd15174f90a23265cae2651c365cf0a4ab9da59c9a0b01",
+    "docs/ANALYSIS_NOTES/support/check_cycle_point_feedback_2026_09_08.py": "4fb7ce826a5fadf72de55c48d9e2cff9e991fe6a2efb2bdebc633efc5a9e3f15",
+    "docs/ANALYSIS_NOTES/support/check_periodic_cycle_transfer_2026_09_08.py": "641b0eeca018efc6df1464d43c6e431b826aa5315dc5ad0d352f281935eeff09",
+    "docs/ANALYSIS_NOTES/support/check_postfocus_2026_09_08.py": "82f954bfb1b71c804a01fa128c12b7e2f603392731dbc9866c65cb2e02f4295b",
+    "docs/ANALYSIS_NOTES/support/check_profile_extension_2026_09_08.py": "8e53027422906ba03a22166ef996199245b5f01dfbe64af0fecb7618a9bd5ada",
+    "docs/ANALYSIS_NOTES/support/check_source_depth_2026_09_08.py": "213235ad08db7f27a6fc9b135a9babade4186959dcf9685d32e6173f61d8e5a9",
+    "docs/NSE_CONCENTRATED_PACKET_2026_09_08.md": "3662f222bca96b40c7c1612337f5b7dc2bf3be9fbcfbea916cc321851bb24197",
+    "docs/NSE_FLUID_LEAN_INTEGRATION_2026_09_08.md": "f5e407706cddedfad6aad32339548e48dfadddc703e2081ea8460074552aa0ea",
+    "docs/NSE_FORCED_ADMISSIBILITY_2026_09_08.md": "a23e4efb1db36b44087a2ae5e427d5f0a239078758685b31664540d8ca83874d",
+    "docs/NSE_FORCED_VISCOSITY_2026_09_08.md": "1658d9750f17d922f7bf2ac77bcbb67280bb73c184ba8535e4b6a75d7505d9d4",
+    "docs/NSE_FREQUENCY_ACTIVATION_2026_09_08.md": "bd875466353b0243b444881770ccef200139d0cd9e5366035b4cebf7fa28fe48",
+    "docs/NSE_GAVRILOV_OBLIQUE_2026_09_08.md": "b1dc752917efef41e527f6dafbb598576b451bc2aa896809bd0a5bb3585115e2",
+    "docs/NSE_LOCALIZED_PROFILE_2026_09_08.md": "5e56059617a7e7d7527521c1fa5d6996837dba8669b31dfd787f376388c31279",
+    "docs/NSE_LOGARITHMIC_HOST_2026_09_08.md": "2d06d4bf6edc170b79728e9494fb2ccfe7af3c803ad8535636359016b5f01761",
+    "docs/NSE_LOGLOG_HANDOVER_2026_09_08.md": "52275bebfa88f8ff626b592548511868f1cb4c8edaf56aacaa0097c29167d9d9",
+    "docs/NSE_NEXT_SEED_ANALYSIS_2026_09_08.md": "63dc21c7b1360ac2dac8cf60356890d0239d727103a336b96b9ef10ccce1496b",
+    "docs/NSE_NEXT_TRANSFER_REVIEW_2026_09_08.md": "8883671c7e1d62ade41bd5fb480e1f3eaea7e63eacb3ee4af6c507b2e66b951a",
+    "docs/NSE_OPENAI_RESULT_BRIDGE_2026_09_08.md": "701b96ca23c6b76220504fc0d328f630152e1f6c5e7e5dc1d2f00b91dba9b0dc",
+    "docs/NSE_ORIGINAL_NONLINEAR_HANDOVER_2026_09_08.md": "4c0af35357546f4a44ae0505440449e8bc74294775ad9a9cc4131bd0fad7bd46",
+    "docs/NSE_OUTGOING_WAVE_2026_09_08.md": "21f507692dafc652bb3d804b396ae30795192619e3bfaf6e5411b06bc6ff2d00",
+    "docs/NSE_QGSO_CAP_VACUITY_2026_09_06.md": "37b02ea5b7ce951735bff06b007beeb62c81c525c5a61282799bc57172d8f723",
+    "docs/NSE_RESEARCH_STRATEGY_2026_09_08.md": "a71c7a99b3aece3702bba417876bdf818d896e55bee932491c486c5d42c9cca2",
+    "docs/NSE_ROUTE_CLASSIFICATION_2026_09_06.md": "47837070b64d0d0d7c3c569c35773bebcb7da485b512c04a07aef1b2a7daf4b5",
+    "docs/NSE_STEADY_BACKGROUND_2026_09_08.md": "7aa7960bf879629bc9922b7e87527583e17f8117899c454dc90390bc60e699dd",
+    "docs/NSE_TWO_TRACK_PROGRAM_2026_09_08.md": "364207e247f9c8f2eca44119cb6d1fcc2c22c6fa84bbe5bca8718e6faa507dff",
+    "docs/NSE_VISCOUS_PACKET_2026_09_08.md": "a8d57cf68375496956f34edcdf3581b59237b9ffb39268ebdd5e9436eb1e4de0",
+    "docs/NSE_WAVE_HANDOVER_2026_09_08.md": "93e9e93c5c3ecf49c0ba49b6668aa5d58884dfebc10f6e1cfbbc13cec2bd8922",
+    "docs/STATUS.md": "e68b82e00ecb8ccccaa557e92baa5abfe98542eacbe55a66858abe4a57fb0732",
+    "experiments/nse_coarse_band_linear_checks.py": "8351e29d339d6f42268086670eea680028fb6edbc031e9021abf8dc2e32a2859",
+    "experiments/nse_concentrated_packet.py": "edda45675ad1ed00af17d0a3c96ee4b36c413bff4aa0bc10efb158ee95a50f24",
+    "experiments/nse_frequency_activation.py": "c301d0a0f5b20c073d78ebd9fe21293124448fff7cc46655ef90a7548343e7e1",
+    "experiments/nse_gavrilov_oblique.py": "3c4237515d6ebf82454b2c15d5ace2196c0deefbc5093ec447a1988179bcfc3f",
+    "experiments/nse_loglog_handover.py": "3ce8aa2723afc47bed913239681c5d23f9d1f8557ffe23309f7dce9c62969438",
+    "experiments/nse_original_handover.py": "f08850b2ba822ac4eab6c504e8013a68fddd4b79aafd4346d6acfe3d11d9aa93",
+    "experiments/nse_outgoing_wave.py": "c2265ac70e9372837c5483c0ae2e8e89fd5cf13f157dd6a4b7d7f4a6acdba720",
+    "experiments/nse_postfocus_normal_source_checks.py": "62c0752627fef386b3e442cc85d14880643ada03221c281af3d256c88e74065e",
+    "experiments/nse_steady_background.py": "13ef7a9be3ba066d3ca64b4b233f6abd5d8e6ddd68cf8567867c645e5e00a9ec",
+    "experiments/nse_viscous_packet.py": "2978be78967ab24ed352974ee8723fb270f91504be71f447e2d69fd44f1aeba6",
+    "experiments/nse_wave_handover.py": "dfbcb44436fe9857323f65306067bdaeef6a7ebd3c9ba20fac60865a406e247f",
+    "formalization/external_ns/README.md": "732ee61033f8d541b1bec338e1e900ff40c65261d58182ee14b728b11148e4b9",
+    "formalization/external_ns/receipt.json": "8c17b2d28563fe60180895efec9b916506eb8a7add6532345d08dc0ec6fc0535",
+    "formalization/oblique_cone/NSEObliqueCone428.lean": "b1c04ded30010b65de978338d484fe9170fea88202a1a91307bca55e4d88d1ab",
+    "formalization/oblique_cone/README.md": "ecdbe89f810503d142314529b3637d21b18977a1e78f2f5612f6171581c928b1",
+    "formalization/oblique_cone/receipt.json": "42d579ab3dcebe1899d2dda88d3cab045312c5465aa0f6bed728c68cb22a255d",
+    "formalization/phase_covariance/PhaseCovariance.lean": "352ccc6cc107e4f8633fbfb7b36b1788dab889f4444c3df5d500f194fb291112",
+    "formalization/phase_covariance/README.md": "b6f177da6d2fe9473c5f48709e84b60dbeba723dc15f108c6755022d9ac1af19",
+    "formalization/phase_covariance/receipt.json": "89f05d2811859cf0dd69273ea5d4e16faf5b4d0933d0ed95c9d56d026545fa69",
+    "tests/test_nse_concentrated_packet.py": "33cfbdafba3eca4c6850f8c7e2608e786d119b575471538c5c7a9b0ddf847dd2",
+    "tests/test_nse_frequency_activation.py": "d4e8958c5f76176b1d3086cc903bdb336e5d4bd3a9cf55f2df0c8a9c9d6aaa6a",
+    "tests/test_nse_gavrilov_oblique.py": "501cfc2fab764be5958af4e869d4e91b1d9001ae2a46c973883072eeb9451042",
+    "tests/test_nse_loglog_handover.py": "fc5bc562c15f94c9e37935cc5d08c967a71dd091fe585a5bf2bb9abeb9ba3c9a",
+    "tests/test_nse_original_handover.py": "3c75d1c671946c17823ac8137da673ba6113a1633478a1c01f01da2b1fb1df81",
+    "tests/test_nse_outgoing_wave.py": "c3fbc7d547d7b4c110761496e718b61661c7a4cfae03e681adadf4e1b1f1a27a",
+    "tests/test_nse_steady_background.py": "9755c7f23b9297fbbff99f4d70e69058fddc12bdf4476b3f42b3c55de9092af3",
+    "tests/test_nse_viscous_packet.py": "4e7ef030a607560c93d6a8be346b5cff0aae28b7531460af7e790ce8f9e6ef1c",
+    "tests/test_nse_wave_handover.py": "697e0823833c164a48b2ba05e1376a6e3059fbf6ea2ab231294a8717aa9bbbd5"
+  },
+  "review_semantics": "AI review is a process record, not external expert acceptance or proof certification."
+}

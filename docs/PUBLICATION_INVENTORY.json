@@ -1,0 +1,1010 @@
+{
+  "schema": "transformatics.publication_inventory.v1",
+  "edition": "First public teaching edition",
+  "prepared": "2026-09-09",
+  "public_repository": "shannontek/transformatics",
+  "public_url": "https://shannontek.github.io/transformatics/",
+  "source": {
+    "repository": "Hmbown/transformatics-research-archive",
+    "branch": "codex/private-archive-checkpoint-20260909",
+    "commit": "78d07dd4893ac07486d4b2b008af13fe2e25087c",
+    "commit_date": "2026-09-09T00:24:13-07:00",
+    "base_commit": "db0fffd7fa1f887707c7a868bde9c7b602e022ae",
+    "base_branch": "codex/qgso-prefix-audit-20260904"
+  },
+  "scope": "Curated public teaching snapshot. Includes the textbook, every source listed in textbook/claims.json and the files those sources link to, the scoped Lean formalizations and their receipts, the focused reproduction tests and experiments for cited claims, artifact receipts cited by the register, and the attribution, license and release metadata.",
+  "excluded_scope": [
+    "Git history, the former virtual environment, caches and build output",
+    "The pre-publication operational log and the earlier status snapshots",
+    "The full research graph and the route ledger",
+    "Large numerical checkpoints and media rendering sources"
+  ],
+  "counts": {
+    "files": 244,
+    "symlinks": 2,
+    "bytes": 3024527
+  },
+  "symlinks": {
+    "AGENTS.md": "design.md",
+    "CLAUDE.md": "design.md"
+  },
+  "files": {
+    ".github/workflows/pages.yml": {
+      "sha256": "5d5283896838efe836fcda76b0e4a50c5927ff11423b9a5fb521517936589740",
+      "size": 2448
+    },
+    ".github/workflows/textbook-checks.yml": {
+      "sha256": "c6cffe84ba629e6d8b1bdbb55d279bfb7d562c77a263a513fdf37cea0d15dba2",
+      "size": 1210
+    },
+    ".gitignore": {
+      "sha256": "19ba19a7b865a2d86820a28e04a900f1fb7435ca03ec20a570237adcf7c7e93d",
+      "size": 377
+    },
+    "CITATION.cff": {
+      "sha256": "2bacbfdf9a55f2952ae2a9dad59ea30959104aa135c3d09496a759687f9d3668",
+      "size": 1100
+    },
+    "CONTRIBUTING.md": {
+      "sha256": "f68e53a08c406df89bfa84abae3f949d1275cbffab8f2206ff56fb85299b5a52",
+      "size": 4659
+    },
+    "LICENSE": {
+      "sha256": "49705863d2a10e829dd9625e076a750bf9da306f907b3d26c405df5786b814a1",
+      "size": 1067
+    },
+    "PUBLICATION.md": {
+      "sha256": "8a2147cc30f05a2ac9e791127e058d469f53fa63b3044aa4c67dab89c1e03aea",
+      "size": 3759
+    },
+    "README.md": {
+      "sha256": "fa1a7af57d39f4fb425b082d6f0ae312c7e2570e53e163c6d226064039468d6d",
+      "size": 9284
+    },
+    "artifacts/enstrophy_sup/nse_concentrated_packet.json": {
+      "sha256": "aaba1ec7087cb74ccca25f9f3f593458d76d20811b7e7f94f2e8f1d7915111d7",
+      "size": 7156
+    },
+    "artifacts/enstrophy_sup/nse_frequency_activation.json": {
+      "sha256": "48a887720c6d0b18aa8ee8465536ee10378528e9657d2336fae4baab2a315a38",
+      "size": 5358
+    },
+    "artifacts/enstrophy_sup/nse_gavrilov_oblique.json": {
+      "sha256": "4dffe7a6eb4d605545dcb5a698c89d353d7e04782c553fdfb0c4b18aa23afba4",
+      "size": 4107
+    },
+    "artifacts/enstrophy_sup/nse_loglog_handover.json": {
+      "sha256": "573eef89eb85f4d25e1e502113552d9cd1500756d70bc855fff9506b939463a2",
+      "size": 9892
+    },
+    "artifacts/enstrophy_sup/nse_original_handover.json": {
+      "sha256": "a99190e11e03e11ee790ca756de856c399f3d1d00c83a4191fb8ad269b7ed0e7",
+      "size": 5630
+    },
+    "artifacts/enstrophy_sup/nse_outgoing_wave.json": {
+      "sha256": "0580ceaf90549d8ce97021b771a54ebf338f719802424d9bd21762f9268a37da",
+      "size": 3414
+    },
+    "artifacts/enstrophy_sup/nse_steady_background.json": {
+      "sha256": "11168d8c2e68d226723b9f26e69fbc1e5d732344c4bcc2d7cbcee71c7f169aaf",
+      "size": 3343
+    },
+    "artifacts/enstrophy_sup/nse_viscous_packet.json": {
+      "sha256": "3269ef26385bca94e56a64ea8ebeac1991975a4cc6e699b642aba76be96c0e10",
+      "size": 9596
+    },
+    "artifacts/enstrophy_sup/nse_wave_handover.json": {
+      "sha256": "f3c5814d3fb59a8edaa02109313f94a13286dccf01386d32024f66a79bccf529",
+      "size": 2760
+    },
+    "design.md": {
+      "sha256": "ab12b99646efe2b75abf5bf385ec314726050484d630a5455fd735fcf7db0d09",
+      "size": 4405
+    },
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_2026_09_08.md": {
+      "sha256": "2b2f6aeeef78374ff91b72322163f637d90e7b416e84a427d264c46c8f6740ea",
+      "size": 16975
+    },
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_COARSE_BAND_REVIEW_2026_09_08.md": {
+      "sha256": "7d34e93a7ffd8698198a20f5f418f221ef2fb3cbf5a22f387e4daf2945fd5143",
+      "size": 13302
+    },
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_SEED_COST_2026_09_08.md": {
+      "sha256": "ff1a08641d8626a5644a59ea62555f25eae6fbf4f3cdf551c7988557130c16cf",
+      "size": 20638
+    },
+    "docs/ANALYSIS_NOTES/NSE_ACTUAL_THIRD_SOURCE_2026_09_08.md": {
+      "sha256": "72d3f40159ace724a726af9a4ebacbc56c97e95c3ac5f1ae7420a5651b7d84de",
+      "size": 14812
+    },
+    "docs/ANALYSIS_NOTES/NSE_AFFINE_SHEAR_STABILITY_BUDGET_2026_09_08.md": {
+      "sha256": "0b1d0cee5cdfbd858b9ae5c5343f24a4e9a81bdf4f10503e543eb8614a620c5d",
+      "size": 17251
+    },
+    "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_2026_09_08.md": {
+      "sha256": "e476ae3fc54b1e3093189e8181df007951b0ab9b8046a5054b7fd95a077ce457",
+      "size": 13649
+    },
+    "docs/ANALYSIS_NOTES/NSE_AFFINE_STRESS_TRANSPORT_REVIEW_2026_09_08.md": {
+      "sha256": "53aeb5631d17ce57e8ac027e39f04791ae8bfdf4c4724771ebea3824787c0cd0",
+      "size": 3617
+    },
+    "docs/ANALYSIS_NOTES/NSE_ANISOTROPIC_ERROR_BUDGET_2026_09_08.md": {
+      "sha256": "19c74926ade19b79507e00fab8525964df4ac04cf55f77a692b76d5e92de704b",
+      "size": 20420
+    },
+    "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_2026_09_08.md": {
+      "sha256": "7776c7406c1b68a952b267fe34af26e17ab3031a5f3779b63e3081866556cf65",
+      "size": 12142
+    },
+    "docs/ANALYSIS_NOTES/NSE_ASYMMETRIC_CYCLE_SPEED_REVIEW_2026_09_08.md": {
+      "sha256": "3bda30759729e7547ff9b3985701e00ef071769a8e212f8afff8b50a82d8b8f9",
+      "size": 10775
+    },
+    "docs/ANALYSIS_NOTES/NSE_COUPLED_STAGES_REVIEW_2026_09_08.md": {
+      "sha256": "288ee34951373629c8a02793e74f63a5663ebbd1f910bbb27269cc66ffdce663",
+      "size": 6571
+    },
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_2026_09_08.md": {
+      "sha256": "70b1e4d9fb0abccbbf743a3fa119729e9111ecd62eef3c340b17da1bc71021e0",
+      "size": 12297
+    },
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_NEXT_TRANSFER_REVIEW_2026_09_08.md": {
+      "sha256": "d17c32c3893dc31cb334818b46fedeab0611f7e6efcaa27e8e030b5c2d10c62c",
+      "size": 6726
+    },
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_2026_09_08.md": {
+      "sha256": "e8fc6743c9004680d501a6ab312730e02da1c92b06bbcd2437e5095b974c47b3",
+      "size": 7939
+    },
+    "docs/ANALYSIS_NOTES/NSE_CYCLE_POINT_FEEDBACK_REVIEW_2026_09_08.md": {
+      "sha256": "7b4a0471fe2fc9148f3a3073e03472ff8cab527d15d458b1aa615ae9fea298ae",
+      "size": 5091
+    },
+    "docs/ANALYSIS_NOTES/NSE_CYCLIC_FORCED_COUPLING_2026_09_08.md": {
+      "sha256": "e76f1c7dfa255c14f3771c3d43a22dc6ac35192d98717afa3a4932fe355f323d",
+      "size": 9214
+    },
+    "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_2026_09_08.md": {
+      "sha256": "feb0e8d41b0746b737d6b0418d4b5dc0df0851e19b5bd7291a1fb2c006b1d235",
+      "size": 14867
+    },
+    "docs/ANALYSIS_NOTES/NSE_DIAGONAL_WINDOW_REVIEW_2026_09_08.md": {
+      "sha256": "527ddda99bd9e6418e9656a9b9b250577e770a5203f0ecc9b7d9ea86bf1397b4",
+      "size": 10572
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERIOR_CORRECTION_OPERATOR_2026_09_08.md": {
+      "sha256": "348ec3902a8396a2dbf7bd3abb7de242a015f8da2d49ec2db8e251eddd8c61bc",
+      "size": 13839
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERIOR_FORCE_COUPLING_2026_09_08.md": {
+      "sha256": "0920c6ef8c3e20dc851d3748f691c4163ad24b38cafb35af9ab4f2b65c8d3004",
+      "size": 13948
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERIOR_QUASIMODE_2026_09_08.md": {
+      "sha256": "22b6c1ef7cf542692dd2bd03b0a2c88c96ae4ab77b53085ff28beec29cc414d1",
+      "size": 17814
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_CAP_REPORT_AUDIT_2026_09_08.md": {
+      "sha256": "f8afca1b0459a98a1f1174066cfe3afc937df02048ad84308989630b5c0a7626",
+      "size": 18009
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_COMPONENT_EXTRACTION_2026_09_08.md": {
+      "sha256": "0af299a206b1c6432e16f536d44b52a892ab40325e9ffe18c98707acdcd3fcdd",
+      "size": 16519
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_FORCE_REMOVAL_SOURCE_2026_09_08.md": {
+      "sha256": "ee8cffa67c35ab7e23f571c68f87d617239294e665e4d77276e1cc17676384b0",
+      "size": 13107
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_MODULATION_SOURCE_2026_09_08.md": {
+      "sha256": "4f059e673d1ec583ea9e06458c146d220ec697b501e4db4cc2ad15f7797fc946",
+      "size": 15236
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_REPORT_SOURCE_AUDIT_2026_09_08.md": {
+      "sha256": "e1486588f04d33c7632acabf66268c1fe96f71dada93b12f248cbfa939a9a600",
+      "size": 15915
+    },
+    "docs/ANALYSIS_NOTES/NSE_EXTERNAL_STATEMENT_AUDIT_2026_09_08.md": {
+      "sha256": "d7249545f0ce161e5f074ccd554c9f5ae7c5f6e163dd2c00700b0fa0ac94415e",
+      "size": 13529
+    },
+    "docs/ANALYSIS_NOTES/NSE_FINER_SCALE_REVIEW_2026_09_08.md": {
+      "sha256": "17d877dcc092c0586cbbb532da335b0a1669ff260379a171f6fdf2cd3a8373f6",
+      "size": 8443
+    },
+    "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_2026_09_08.md": {
+      "sha256": "909e21a42ddb67636f2f08e695111d07005ee0935c9d36a8991a2e7c0fa75c4e",
+      "size": 16005
+    },
+    "docs/ANALYSIS_NOTES/NSE_FINITE_DEPTH_PROFILE_REVIEW_2026_09_08.md": {
+      "sha256": "7b4cc95fa5db65eb17a088a1551c2901e0b310a97f06ca6386d4ebb90321e3d0",
+      "size": 5960
+    },
+    "docs/ANALYSIS_NOTES/NSE_FIXED_ANNULUS_OBSTRUCTION_2026_09_08.md": {
+      "sha256": "3586321a95ba94ef71dde88e7a61f8c4936f319bf0fbc48a7a1f206fe4d83424",
+      "size": 10702
+    },
+    "docs/ANALYSIS_NOTES/NSE_FLAT_PROFILE_SEED_COST_2026_09_08.md": {
+      "sha256": "f15e6ccff790d8d638764d4fd9579cb5c751eb6bc5b9bb5022cdb50ba7e9c2b9",
+      "size": 9242
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCED_RESET_2026_09_08.md": {
+      "sha256": "74b5d3662ae3f2590df9e5720df4c41941893058fbb0d8f6cf21fde429f4be62",
+      "size": 10059
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCED_STAGE_REVIEW_2026_09_08.md": {
+      "sha256": "f03f04a5e7ae8e98f596d02273b8fe1fbe8463f5a8fd91f4efca6e2dd1794268",
+      "size": 24567
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCE_GAIN_AUDIT_2026_09_08.md": {
+      "sha256": "1bb6d01a538451771af5217464ca508f79f5994ca8c645c91857d874bd7faf00",
+      "size": 14428
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCE_PROJECTION_LOCALITY_2026_09_08.md": {
+      "sha256": "4538ba612891ea50260e90fc079b65e59d6aa07f72e0ce42fc0fe33d5ea5c3f8",
+      "size": 7205
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCE_REMOVAL_STABILITY_2026_09_08.md": {
+      "sha256": "d4945d8afdde34d05c9e29b3aa5fe9715c015d2be976ad3f6edf74ae9a5cba3b",
+      "size": 12610
+    },
+    "docs/ANALYSIS_NOTES/NSE_FORCE_RESPONSE_JETS_2026_09_08.md": {
+      "sha256": "d404fc7feabf1f1faaf211886446d33048f3b99bc14d8ec5c59ab12daf78e06d",
+      "size": 16102
+    },
+    "docs/ANALYSIS_NOTES/NSE_FUTURE_COVECTOR_2026_09_08.md": {
+      "sha256": "f64fc0bdd440e7b6a20de501cfcbf178a1761f1ea6c58c8ca41655feb6915142",
+      "size": 10383
+    },
+    "docs/ANALYSIS_NOTES/NSE_GENERATED_RECEIVER_2026_09_08.md": {
+      "sha256": "29eee295f2d9a1aa01d164ec5b5cc618f8d4ebbbb948f5af6ff608e732e331b8",
+      "size": 19215
+    },
+    "docs/ANALYSIS_NOTES/NSE_GLOBAL_PRESSURE_FEEDBACK_2026_09_08.md": {
+      "sha256": "c057b4f46abdddd024645133e72a1522a9c6fd802daec75f2d189b2b23378795",
+      "size": 15817
+    },
+    "docs/ANALYSIS_NOTES/NSE_GLOBAL_STRAIN_COST_2026_09_08.md": {
+      "sha256": "a67d78289faa06cdd1abe722cbe49f09f250ee16839277e2178ef5cab221cb2c",
+      "size": 17120
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_2026_09_08.md": {
+      "sha256": "87008c022f2def5df5c8eeef076d9535ff991fc1111ab864b0f9a64d8ebb789f",
+      "size": 8782
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_DEPTH_BUDGET_REVIEW_2026_09_08.md": {
+      "sha256": "d8c102d721e9809bc65cad9dcf78bffd33588dfd7cb34e0edf9e79586540ee42",
+      "size": 8161
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_2026_09_08.md": {
+      "sha256": "cb6189ebfb82a7038c12c2de051a052b02cead06686c7cea1b2f2a4d62afdc48",
+      "size": 18691
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_BACKGROUND_REVIEW_2026_09_08.md": {
+      "sha256": "4cd6c64a444feb0fba6fd91415353f11c411712d33102355731c302dd6b77380",
+      "size": 12091
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_2026_09_08.md": {
+      "sha256": "a54882be5ab52cdf987285bdbd579b6cc8f9a518eb6c8aa255e78dd35d00bc42",
+      "size": 14150
+    },
+    "docs/ANALYSIS_NOTES/NSE_GROWING_WINDOW_REMAINDER_REVIEW_2026_09_08.md": {
+      "sha256": "2f08881a1691c072bfb11b78b1d9f3f77572f43002fddf58f21ccaa0886b2c67",
+      "size": 9414
+    },
+    "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_2026_09_08.md": {
+      "sha256": "9e39e482e374f6e27e393d434cd2b243f13a4c109563c8df7877eb07e182102b",
+      "size": 21391
+    },
+    "docs/ANALYSIS_NOTES/NSE_INHERITED_FORCED_HOST_REVIEW_2026_09_08.md": {
+      "sha256": "cccb104102b8fcb3193fd07ba79ed085b9913b3fa6e6cd2719f2222d1f3c0d94",
+      "size": 9348
+    },
+    "docs/ANALYSIS_NOTES/NSE_INITIAL_CORRECTION_2026_09_08.md": {
+      "sha256": "08b1a2e421a091af83993c7a6ae835d9a87206b298dc9c87c69d1f2ec88fd8d1",
+      "size": 24785
+    },
+    "docs/ANALYSIS_NOTES/NSE_INNER_MATCHING_2026_09_08.md": {
+      "sha256": "491c642b33f0af1a7ce480bcaddd9079007b58ea45798c6310c412da39e686d5",
+      "size": 12479
+    },
+    "docs/ANALYSIS_NOTES/NSE_KOLMOGOROV_OUTGOING_AUDIT_2026_09_08.md": {
+      "sha256": "d6f6257f57e4df7b2b9b74c53573df09141c310bdd0be267d4e9bc0a888e3024",
+      "size": 31135
+    },
+    "docs/ANALYSIS_NOTES/NSE_LATER_FLOW_ATTEMPT_2026_09_08.md": {
+      "sha256": "d916b78b668e7e1a46a7cd3287fcdbb4ec8520d0212e7dcd3d15ec640601eb94",
+      "size": 15131
+    },
+    "docs/ANALYSIS_NOTES/NSE_LOCAL_RESPONSE_BOUND_2026_09_08.md": {
+      "sha256": "9c7bed5c75f9e025b490f053bc90cdb49615edf2e616c8370be086fa9f96d54c",
+      "size": 19432
+    },
+    "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_ERROR_REVIEW_2026_09_08.md": {
+      "sha256": "999b44c59329eb9241be729ddb86dabd870e890df4bc79c851bd9b0c19601354",
+      "size": 13035
+    },
+    "docs/ANALYSIS_NOTES/NSE_LOGARITHMIC_HOST_REVIEW_2026_09_08.md": {
+      "sha256": "090eb9d4ad410768894d8c99ae840402d8a85e2816d6019ab9af96a8636b7323",
+      "size": 14714
+    },
+    "docs/ANALYSIS_NOTES/NSE_LONGER_HOST_ATTEMPT_2026_09_08.md": {
+      "sha256": "ff1485dc7ed3e88f2930835d081a2ff12fbf67d37b52804c7d22eb7cd7ca09af",
+      "size": 20851
+    },
+    "docs/ANALYSIS_NOTES/NSE_LOW_AXIAL_RESPONSE_2026_09_08.md": {
+      "sha256": "2ec21e3ceb07155635764a0b89cd50066ca91d11e74b3dbf7d641f29b69e95e2",
+      "size": 15971
+    },
+    "docs/ANALYSIS_NOTES/NSE_MATCHING_REVIEW_2026_09_08.md": {
+      "sha256": "68da29854c56e7eaa50233536622020eaeed94fa3d218d5c18e4b1f4b39d9d0e",
+      "size": 55012
+    },
+    "docs/ANALYSIS_NOTES/NSE_MIXED_SEED_NONLINEAR_BUDGET_2026_09_08.md": {
+      "sha256": "1c622f64530d9185b251135e25afe13ea397b03d4547c4974959589b0e9980d8",
+      "size": 19858
+    },
+    "docs/ANALYSIS_NOTES/NSE_MODULATED_FORCE_REMOVAL_2026_09_08.md": {
+      "sha256": "f9907d707178bd07f079dbf458beeffab93b4244c4cacb631cd0e1e6d0a04939",
+      "size": 15458
+    },
+    "docs/ANALYSIS_NOTES/NSE_NATURAL_RADIAL_RESPONSE_2026_09_08.md": {
+      "sha256": "072f124fadca76016cce17250644b4b14ba2313ab3a3da5164e6e48699203c9d",
+      "size": 16027
+    },
+    "docs/ANALYSIS_NOTES/NSE_NONLINEAR_ENDPOINT_CORRECTION_2026_09_08.md": {
+      "sha256": "8808420ed184c4208222cbde689109ffc3d670dd93d52d4b48eb4b9dbdc8630e",
+      "size": 11528
+    },
+    "docs/ANALYSIS_NOTES/NSE_NONLINEAR_FORCE_COMPARISON_2026_09_08.md": {
+      "sha256": "9c64ff9c858417f79655d22245a50f47d70c4fef23319b3fb276def6fb434fff",
+      "size": 16279
+    },
+    "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_2026_09_08.md": {
+      "sha256": "f5da67ed4561a1cfd90a9f9272a09bfe954eeb1293a186cce428cca40b689d0d",
+      "size": 17576
+    },
+    "docs/ANALYSIS_NOTES/NSE_NORMAL_SOURCE_TRANSPORT_REVIEW_2026_09_08.md": {
+      "sha256": "00576f9596bafecb2a47d978cac5f13ca654899688c04633b94c64310781c4a4",
+      "size": 10640
+    },
+    "docs/ANALYSIS_NOTES/NSE_ORIGINAL_SEED_COMPATIBILITY_DRAFT_2026_09_08.md": {
+      "sha256": "d08b165acb3505da3a8bdddf2d64b0518bb6dba9b7a4fe346b88cf9ed2b64d70",
+      "size": 21320
+    },
+    "docs/ANALYSIS_NOTES/NSE_OUTER_MATCHING_2026_09_08.md": {
+      "sha256": "8a61cf3be7aa0908d52e49007c52dc153370e9c72fc11c5de3ccf8a579157762",
+      "size": 14338
+    },
+    "docs/ANALYSIS_NOTES/NSE_OUTGOING_OUTER_2026_09_08.md": {
+      "sha256": "15dcb45ba500a790e2778b752aa2937c2ba85a56cf3715392e3e4312b9e68c92",
+      "size": 13658
+    },
+    "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_2026_09_08.md": {
+      "sha256": "9e4549fd9c0710e711c44ac742dec295d1fc0acd5f1292275579db099fdcc846",
+      "size": 11596
+    },
+    "docs/ANALYSIS_NOTES/NSE_PERIODIC_CYCLE_TRANSFER_REVIEW_2026_09_08.md": {
+      "sha256": "1ef6500757e7e0b4e7a4c4fa22521ec71d4c4b4a1a063471c8c19b8bccfada83",
+      "size": 3679
+    },
+    "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_2026_09_08.md": {
+      "sha256": "1682477e11fb3dedaa1bec477e921dd0dfe7373e2a10488d158c9244b6a7e320",
+      "size": 22708
+    },
+    "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_NORMAL_SOURCE_REVIEW_2026_09_08.md": {
+      "sha256": "c10f0b9a98a8842629a190b1562ff2a55c8b78ac0615ee1afbf769513c6506a3",
+      "size": 15243
+    },
+    "docs/ANALYSIS_NOTES/NSE_POSTFOCUS_REVIEW_2026_09_08.md": {
+      "sha256": "5cea4d803b9487cd649c09243e72a05b1ca27bd71ee50a1bca2c4614545af429",
+      "size": 9117
+    },
+    "docs/ANALYSIS_NOTES/NSE_PRESSURE_RESPONSE_EVOLUTION_2026_09_08.md": {
+      "sha256": "04e4b26c728074e7383775a5880de7d76d5306d09ee87b89ef9ad7f465c780e8",
+      "size": 15451
+    },
+    "docs/ANALYSIS_NOTES/NSE_PRIMARY_STRAIN_AVERAGING_2026_09_08.md": {
+      "sha256": "f03bd9f55b4a3319f8c5b44ceb0d9727d0c673cd7b26fccdb5fa4ec254631203",
+      "size": 13980
+    },
+    "docs/ANALYSIS_NOTES/NSE_PROFILE_EXTENSION_REVIEW_2026_09_08.md": {
+      "sha256": "7993523e07f58e1251cf08c324218aecf2ede4f466d4c649332bb6002b7040ff",
+      "size": 27082
+    },
+    "docs/ANALYSIS_NOTES/NSE_SECOND_NONLINEAR_HANDOVER_DRAFT_2026_09_08.md": {
+      "sha256": "5f30943961ca1c4b6d029ed566cfad23abea22c3becd05552bc6238e08f2a5f6",
+      "size": 22557
+    },
+    "docs/ANALYSIS_NOTES/NSE_SMOOTH_SEED_SUPPLY_2026_09_08.md": {
+      "sha256": "51fce0902e5335ce72ad79061cb2e47e293f73e181592af9cdcecdd8a55a4557",
+      "size": 10935
+    },
+    "docs/ANALYSIS_NOTES/NSE_SYMMETRY_BREAKING_AUDIT_2026_09_08.md": {
+      "sha256": "42e1bd17391edecc3fa3e92bcad358d4c1ffedd66e73756f783ad6d1ded5d57b",
+      "size": 14452
+    },
+    "docs/ANALYSIS_NOTES/NSE_TERMINAL_FORCE_NONZERO_2026_09_08.md": {
+      "sha256": "3e2799da31ed5f2971b4259fc34156fc1b4bb8399d078ef58097afd06bd36dd0",
+      "size": 8283
+    },
+    "docs/ANALYSIS_NOTES/NSE_THIRD_DIRECTION_SOURCE_2026_09_08.md": {
+      "sha256": "41c5fc5772d3bc9978d84a7a0815ddf3c59065add1000155d82287ffd496ebff",
+      "size": 16532
+    },
+    "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_2026_09_08.md": {
+      "sha256": "a7cc608ad90dd598d0b3a2b2bd36308b80f90d879fa062b8ea886d496909cb3f",
+      "size": 16961
+    },
+    "docs/ANALYSIS_NOTES/NSE_THREED_FORCED_STAGE_REVIEW_2026_09_08.md": {
+      "sha256": "13f79e47eb125c3727fd367c01078c2ab8e1befa8cacb654fcbccc127b583e96",
+      "size": 11457
+    },
+    "docs/ANALYSIS_NOTES/NSE_TWOWAY_FORCED_COUPLING_2026_09_08.md": {
+      "sha256": "0a02e18d37741b655de1c968a74039679f5c038fa799df445f8e01c318690884",
+      "size": 19344
+    },
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_ASSEMBLY_REVIEW_2026_09_08.md": {
+      "sha256": "29bf4ddcda6866ba662ff9999629da0c36be0dfc2c930dcead2f9f70c491ad7a",
+      "size": 9145
+    },
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_2026_09_08.md": {
+      "sha256": "8ff6f93a377898881fff8cb516652f8e3c2a1ed8a8becb614865be8630b8eb70",
+      "size": 14501
+    },
+    "docs/ANALYSIS_NOTES/NSE_UNIFORM_PROFILE_WINDOW_REVIEW_2026_09_08.md": {
+      "sha256": "27e34f211677cafccdef17a357276d217848636093eed4b0f2290469530835c2",
+      "size": 9582
+    },
+    "docs/ANALYSIS_NOTES/NSE_VISCOUS_FLAT_CORE_2026_09_08.md": {
+      "sha256": "24356a8fcca95f271068a75f67578def7e939ab9f60d99e7c3b8efa80c683d94",
+      "size": 10250
+    },
+    "docs/ANALYSIS_NOTES/NSE_VISCOUS_STAGE_ATTEMPT_2026_09_08.md": {
+      "sha256": "a70a3c2acc887219dd146385eda3d2ca8a6f83eac7493d8f95a87699b188dd5f",
+      "size": 20487
+    },
+    "docs/ANALYSIS_NOTES/support/check_annular_geometry_2026_09_08.py": {
+      "sha256": "f92726bc34c24de9ac085615960ef6d2fa824217590b203977f369bccf72f7b4",
+      "size": 3318
+    },
+    "docs/ANALYSIS_NOTES/support/check_asymmetric_cycle_speed_2026_09_08.py": {
+      "sha256": "192d25eed1a0ac68001114cf625490e3a138ffac6d8504ae34aa2e66e868857d",
+      "size": 5468
+    },
+    "docs/ANALYSIS_NOTES/support/check_coupled_stages_2026_09_08.py": {
+      "sha256": "097f69a2df45555ef57f57cb7eacdf877804db86c8e39c40626509a0ccf87d9b",
+      "size": 3641
+    },
+    "docs/ANALYSIS_NOTES/support/check_cycle_next_transfer_2026_09_08.py": {
+      "sha256": "9c49093157f4889e2ffd15174f90a23265cae2651c365cf0a4ab9da59c9a0b01",
+      "size": 6547
+    },
+    "docs/ANALYSIS_NOTES/support/check_cycle_point_feedback_2026_09_08.py": {
+      "sha256": "4fb7ce826a5fadf72de55c48d9e2cff9e991fe6a2efb2bdebc633efc5a9e3f15",
+      "size": 2571
+    },
+    "docs/ANALYSIS_NOTES/support/check_force_removal_2026_09_08.py": {
+      "sha256": "d1fe2ee870c4e0976824f8708bb6234e632d1fc7463c610a96787348777f16dc",
+      "size": 23509
+    },
+    "docs/ANALYSIS_NOTES/support/check_periodic_cycle_transfer_2026_09_08.py": {
+      "sha256": "641b0eeca018efc6df1464d43c6e431b826aa5315dc5ad0d352f281935eeff09",
+      "size": 3025
+    },
+    "docs/ANALYSIS_NOTES/support/check_postfocus_2026_09_08.py": {
+      "sha256": "82f954bfb1b71c804a01fa128c12b7e2f603392731dbc9866c65cb2e02f4295b",
+      "size": 3400
+    },
+    "docs/ANALYSIS_NOTES/support/check_profile_extension_2026_09_08.py": {
+      "sha256": "8e53027422906ba03a22166ef996199245b5f01dfbe64af0fecb7618a9bd5ada",
+      "size": 14382
+    },
+    "docs/ANALYSIS_NOTES/support/check_seed_turning_2026_09_08.py": {
+      "sha256": "2533fde57c2fbf841e88cebb70664e6a93498888027789ae2f5c977f01fc827f",
+      "size": 3126
+    },
+    "docs/ANALYSIS_NOTES/support/check_shear_propagator_2026_09_08.py": {
+      "sha256": "dc429f0b4936d7b435bd8359e76256f2c0474df27b13e4e600177d589b1a8960",
+      "size": 1142
+    },
+    "docs/ANALYSIS_NOTES/support/check_source_depth_2026_09_08.py": {
+      "sha256": "213235ad08db7f27a6fc9b135a9babade4186959dcf9685d32e6173f61d8e5a9",
+      "size": 5947
+    },
+    "docs/ARCHIVE_READING_GUIDE.md": {
+      "sha256": "e4fab0bf6d57692c654b654a38740c154a954fac0178e89428bf289cd6606f48",
+      "size": 3961
+    },
+    "docs/CONTRIBUTOR_PROVENANCE.md": {
+      "sha256": "854ee8a4921736e40143e2a8777efc61be86e4da592c3171b2643d573278bf70",
+      "size": 8661
+    },
+    "docs/ENERGY_CODIMENSION_LEDGER_2026_07_25.md": {
+      "sha256": "47ff91b1d527d0ca9488ca5c866abdf3ff8cc16fa1ae5815678d6ad8eac9cd38",
+      "size": 11295
+    },
+    "docs/NSE_CONCENTRATED_PACKET_2026_09_08.md": {
+      "sha256": "3662f222bca96b40c7c1612337f5b7dc2bf3be9fbcfbea916cc321851bb24197",
+      "size": 14876
+    },
+    "docs/NSE_ESTIMATE_WALL_2026_09_06.md": {
+      "sha256": "07890a644b772c38ca1a565983bb71a4172191348d7a3c49216210972263bf8a",
+      "size": 2894
+    },
+    "docs/NSE_EXTERNAL_REVIEW_RESPONSE_2026_09_08.md": {
+      "sha256": "46336c6772e1bb1d91a88e950bba78af0dfff5becffe13a5376f5bba0e3e2945",
+      "size": 7023
+    },
+    "docs/NSE_FLUID_LEAN_INTEGRATION_2026_09_08.md": {
+      "sha256": "f5e407706cddedfad6aad32339548e48dfadddc703e2081ea8460074552aa0ea",
+      "size": 8218
+    },
+    "docs/NSE_FORCED_ADMISSIBILITY_2026_09_08.md": {
+      "sha256": "a23e4efb1db36b44087a2ae5e427d5f0a239078758685b31664540d8ca83874d",
+      "size": 18838
+    },
+    "docs/NSE_FORCED_VISCOSITY_2026_09_08.md": {
+      "sha256": "1658d9750f17d922f7bf2ac77bcbb67280bb73c184ba8535e4b6a75d7505d9d4",
+      "size": 21232
+    },
+    "docs/NSE_FREQUENCY_ACTIVATION_2026_09_08.md": {
+      "sha256": "bd875466353b0243b444881770ccef200139d0cd9e5366035b4cebf7fa28fe48",
+      "size": 18720
+    },
+    "docs/NSE_GAVRILOV_OBLIQUE_2026_09_08.md": {
+      "sha256": "b1dc752917efef41e527f6dafbb598576b451bc2aa896809bd0a5bb3585115e2",
+      "size": 15059
+    },
+    "docs/NSE_LITERATURE_UPDATE_2026_09_08.md": {
+      "sha256": "1e61e12d4de0d0feaa661332e0553bbe2b8a35b230c25241d97c79cf3a4e2e4a",
+      "size": 15902
+    },
+    "docs/NSE_LOCALIZED_PROFILE_2026_09_08.md": {
+      "sha256": "5e56059617a7e7d7527521c1fa5d6996837dba8669b31dfd787f376388c31279",
+      "size": 28418
+    },
+    "docs/NSE_LOGARITHMIC_HOST_2026_09_08.md": {
+      "sha256": "2d06d4bf6edc170b79728e9494fb2ccfe7af3c803ad8535636359016b5f01761",
+      "size": 15573
+    },
+    "docs/NSE_LOGLOG_HANDOVER_2026_09_08.md": {
+      "sha256": "52275bebfa88f8ff626b592548511868f1cb4c8edaf56aacaa0097c29167d9d9",
+      "size": 24165
+    },
+    "docs/NSE_NEXT_SEED_ANALYSIS_2026_09_08.md": {
+      "sha256": "63dc21c7b1360ac2dac8cf60356890d0239d727103a336b96b9ef10ccce1496b",
+      "size": 6860
+    },
+    "docs/NSE_NEXT_TRANSFER_REVIEW_2026_09_08.md": {
+      "sha256": "8883671c7e1d62ade41bd5fb480e1f3eaea7e63eacb3ee4af6c507b2e66b951a",
+      "size": 29397
+    },
+    "docs/NSE_OPENAI_RESULT_BRIDGE_2026_09_08.md": {
+      "sha256": "701b96ca23c6b76220504fc0d328f630152e1f6c5e7e5dc1d2f00b91dba9b0dc",
+      "size": 23383
+    },
+    "docs/NSE_ORIGINAL_NONLINEAR_HANDOVER_2026_09_08.md": {
+      "sha256": "4c0af35357546f4a44ae0505440449e8bc74294775ad9a9cc4131bd0fad7bd46",
+      "size": 25180
+    },
+    "docs/NSE_OUTGOING_WAVE_2026_09_08.md": {
+      "sha256": "21f507692dafc652bb3d804b396ae30795192619e3bfaf6e5411b06bc6ff2d00",
+      "size": 27479
+    },
+    "docs/NSE_QGSO_CAP_VACUITY_2026_09_06.md": {
+      "sha256": "37b02ea5b7ce951735bff06b007beeb62c81c525c5a61282799bc57172d8f723",
+      "size": 3664
+    },
+    "docs/NSE_QGSO_KINEMATIC_BUDGET_OBSTRUCTION_2026_09_04.md": {
+      "sha256": "14fc0306e67e8cc0a9330ba5daf5372b8ecac00cae433f3008b906e504c5dc3b",
+      "size": 17508
+    },
+    "docs/NSE_QGSO_PREFIX_AUDIT_2026_09_04.md": {
+      "sha256": "71f197d0b0dc81a924ff1dbae8853ca0ec29867279bc4c6f8b153a0b845f30b5",
+      "size": 16696
+    },
+    "docs/NSE_QGSO_TRANSFER_BUDGET_2026_09_04.md": {
+      "sha256": "d57a73f918e5ce55268ea04ce4a3f5e02742b61527ca8d283c549da8c3db76a3",
+      "size": 11683
+    },
+    "docs/NSE_RESEARCH_STRATEGY_2026_09_08.md": {
+      "sha256": "a71c7a99b3aece3702bba417876bdf818d896e55bee932491c486c5d42c9cca2",
+      "size": 54108
+    },
+    "docs/NSE_ROUTE_CLASSIFICATION_2026_09_06.md": {
+      "sha256": "47837070b64d0d0d7c3c569c35773bebcb7da485b512c04a07aef1b2a7daf4b5",
+      "size": 3263
+    },
+    "docs/NSE_STEADY_BACKGROUND_2026_09_08.md": {
+      "sha256": "7aa7960bf879629bc9922b7e87527583e17f8117899c454dc90390bc60e699dd",
+      "size": 13305
+    },
+    "docs/NSE_TRANSFER_DEPTH_BUDGET_2026_09_08.md": {
+      "sha256": "806da3259809acffd2a020ee5e443bfa06afe9dd54e846eaa36a3c7221b38b57",
+      "size": 10349
+    },
+    "docs/NSE_TWO_TRACK_PROGRAM_2026_09_08.md": {
+      "sha256": "364207e247f9c8f2eca44119cb6d1fcc2c22c6fa84bbe5bca8718e6faa507dff",
+      "size": 12758
+    },
+    "docs/NSE_VISCOUS_PACKET_2026_09_08.md": {
+      "sha256": "a8d57cf68375496956f34edcdf3581b59237b9ffb39268ebdd5e9436eb1e4de0",
+      "size": 36224
+    },
+    "docs/NSE_WAVE_HANDOVER_2026_09_08.md": {
+      "sha256": "93e9e93c5c3ecf49c0ba49b6668aa5d58884dfebc10f6e1cfbbc13cec2bd8922",
+      "size": 8412
+    },
+    "docs/PROOF_CHAIN_AUDIT_2026_06_09.md": {
+      "sha256": "8ec66ef40d3c28e48ddda104d708bf850a42c79ffbf374cbdf77343f92bb318b",
+      "size": 4641
+    },
+    "docs/PUBLICATION_CHECKS.md": {
+      "sha256": "844ccdced34886dabb1acea6de2976fc3e3c75069aea5d4788f788ffd527118d",
+      "size": 4920
+    },
+    "docs/REQUIRED_LEMMA_ATTACK_2026_06_17.md": {
+      "sha256": "0dcb8a442b048fe384b668f05ec0c2694d192c2144f3ae0374d4e3c47afed7e4",
+      "size": 9496
+    },
+    "docs/STATUS.md": {
+      "sha256": "e68b82e00ecb8ccccaa557e92baa5abfe98542eacbe55a66858abe4a57fb0732",
+      "size": 5824
+    },
+    "docs/TRANSFORMATICS_CURRICULUM.md": {
+      "sha256": "37cd24664eed3c38971e9fe1b7cc3b396725f8a1b5babc33a1543b88ed114944",
+      "size": 19860
+    },
+    "docs/TRANSFORMATICS_DISCIPLINE.md": {
+      "sha256": "e6e47a458de47957b75a5bba3233284dfcc6a017081565735bc96d0aa06d2776",
+      "size": 35638
+    },
+    "docs/VSA_FINITE_FOURIER_N6_CERTIFIED_2026_04_30.md": {
+      "sha256": "2da743d63c668122ffbd755eddd610a1206879db599db3de30e769b07a4bd9f6",
+      "size": 13147
+    },
+    "docs/VSA_RAY_THEOREMS_2026_06_09.md": {
+      "sha256": "3996fb715bd62b7cc8b0270c98e3b6d64601f2a5541a1068009ba3a2b88f8145",
+      "size": 30286
+    },
+    "experiments/__init__.py": {
+      "sha256": "55b31ea6bd63733f2fe55bbc30af59d082d3cbdaacce4137224f00f284ff8548",
+      "size": 60
+    },
+    "experiments/nse_coarse_band_linear_checks.py": {
+      "sha256": "8351e29d339d6f42268086670eea680028fb6edbc031e9021abf8dc2e32a2859",
+      "size": 2307
+    },
+    "experiments/nse_concentrated_packet.py": {
+      "sha256": "edda45675ad1ed00af17d0a3c96ee4b36c413bff4aa0bc10efb158ee95a50f24",
+      "size": 10946
+    },
+    "experiments/nse_frequency_activation.py": {
+      "sha256": "c301d0a0f5b20c073d78ebd9fe21293124448fff7cc46655ef90a7548343e7e1",
+      "size": 9470
+    },
+    "experiments/nse_gavrilov_oblique.py": {
+      "sha256": "3c4237515d6ebf82454b2c15d5ace2196c0deefbc5093ec447a1988179bcfc3f",
+      "size": 8087
+    },
+    "experiments/nse_loglog_handover.py": {
+      "sha256": "3ce8aa2723afc47bed913239681c5d23f9d1f8557ffe23309f7dce9c62969438",
+      "size": 17037
+    },
+    "experiments/nse_original_handover.py": {
+      "sha256": "f08850b2ba822ac4eab6c504e8013a68fddd4b79aafd4346d6acfe3d11d9aa93",
+      "size": 11927
+    },
+    "experiments/nse_outgoing_wave.py": {
+      "sha256": "c2265ac70e9372837c5483c0ae2e8e89fd5cf13f157dd6a4b7d7f4a6acdba720",
+      "size": 5269
+    },
+    "experiments/nse_postfocus_normal_source_checks.py": {
+      "sha256": "62c0752627fef386b3e442cc85d14880643ada03221c281af3d256c88e74065e",
+      "size": 3906
+    },
+    "experiments/nse_qgso_transfer_budget.py": {
+      "sha256": "69d12309fa86c3eea6475c84bffb5e21c2dc57edcab47ecf849a0c0a287a1d5a",
+      "size": 15395
+    },
+    "experiments/nse_steady_background.py": {
+      "sha256": "13ef7a9be3ba066d3ca64b4b233f6abd5d8e6ddd68cf8567867c645e5e00a9ec",
+      "size": 6790
+    },
+    "experiments/nse_viscous_packet.py": {
+      "sha256": "2978be78967ab24ed352974ee8723fb270f91504be71f447e2d69fd44f1aeba6",
+      "size": 18455
+    },
+    "experiments/nse_wave_handover.py": {
+      "sha256": "dfbcb44436fe9857323f65306067bdaeef6a7ebd3c9ba20fac60865a406e247f",
+      "size": 6006
+    },
+    "formalization/external_ns/README.md": {
+      "sha256": "732ee61033f8d541b1bec338e1e900ff40c65261d58182ee14b728b11148e4b9",
+      "size": 4298
+    },
+    "formalization/external_ns/receipt.json": {
+      "sha256": "8c17b2d28563fe60180895efec9b916506eb8a7add6532345d08dc0ec6fc0535",
+      "size": 4571
+    },
+    "formalization/oblique_cone/NSEObliqueCone428.lean": {
+      "sha256": "b1c04ded30010b65de978338d484fe9170fea88202a1a91307bca55e4d88d1ab",
+      "size": 3386
+    },
+    "formalization/oblique_cone/README.md": {
+      "sha256": "ecdbe89f810503d142314529b3637d21b18977a1e78f2f5612f6171581c928b1",
+      "size": 3482
+    },
+    "formalization/oblique_cone/receipt.json": {
+      "sha256": "42d579ab3dcebe1899d2dda88d3cab045312c5465aa0f6bed728c68cb22a255d",
+      "size": 8497
+    },
+    "formalization/phase_covariance/PhaseCovariance.lean": {
+      "sha256": "352ccc6cc107e4f8633fbfb7b36b1788dab889f4444c3df5d500f194fb291112",
+      "size": 2615
+    },
+    "formalization/phase_covariance/README.md": {
+      "sha256": "b6f177da6d2fe9473c5f48709e84b60dbeba723dc15f108c6755022d9ac1af19",
+      "size": 2702
+    },
+    "formalization/phase_covariance/receipt.json": {
+      "sha256": "89f05d2811859cf0dd69273ea5d4e16faf5b4d0933d0ed95c9d56d026545fa69",
+      "size": 3749
+    },
+    "prompts/nse_next_attempt_2026_09_08.md": {
+      "sha256": "335bcc26fb3cef0e8152d651f2eb19e2c675be4e996f61333580e791aa17246e",
+      "size": 40525
+    },
+    "pyproject.toml": {
+      "sha256": "1f785b01fd927f9b3ff7582a84ff562898a5dbd4008d35a9de55e9e0d984915a",
+      "size": 719
+    },
+    "scripts/build_textbook.py": {
+      "sha256": "77bc41d165537ce9f85ec29bd4d7b38caf4717f69260f33443c72dcbc300e2f7",
+      "size": 19253
+    },
+    "scripts/update_publication_inventory.py": {
+      "sha256": "26793387b568045a9574b2ba4accdc118b0377484e0dc10304319c275caa1cd6",
+      "size": 6254
+    },
+    "tests/requirements.txt": {
+      "sha256": "72a7d8916d9988ad67122e7269c7f86f2493dfda92cea1097f8474cbe54e1a8c",
+      "size": 14
+    },
+    "tests/test_nse_concentrated_packet.py": {
+      "sha256": "33cfbdafba3eca4c6850f8c7e2608e786d119b575471538c5c7a9b0ddf847dd2",
+      "size": 6971
+    },
+    "tests/test_nse_frequency_activation.py": {
+      "sha256": "d4e8958c5f76176b1d3086cc903bdb336e5d4bd3a9cf55f2df0c8a9c9d6aaa6a",
+      "size": 7289
+    },
+    "tests/test_nse_gavrilov_oblique.py": {
+      "sha256": "501cfc2fab764be5958af4e869d4e91b1d9001ae2a46c973883072eeb9451042",
+      "size": 3340
+    },
+    "tests/test_nse_loglog_handover.py": {
+      "sha256": "fc5bc562c15f94c9e37935cc5d08c967a71dd091fe585a5bf2bb9abeb9ba3c9a",
+      "size": 10915
+    },
+    "tests/test_nse_original_handover.py": {
+      "sha256": "3c75d1c671946c17823ac8137da673ba6113a1633478a1c01f01da2b1fb1df81",
+      "size": 3759
+    },
+    "tests/test_nse_outgoing_wave.py": {
+      "sha256": "c3fbc7d547d7b4c110761496e718b61661c7a4cfae03e681adadf4e1b1f1a27a",
+      "size": 4470
+    },
+    "tests/test_nse_steady_background.py": {
+      "sha256": "9755c7f23b9297fbbff99f4d70e69058fddc12bdf4476b3f42b3c55de9092af3",
+      "size": 3011
+    },
+    "tests/test_nse_viscous_packet.py": {
+      "sha256": "4e7ef030a607560c93d6a8be346b5cff0aae28b7531460af7e790ce8f9e6ef1c",
+      "size": 8578
+    },
+    "tests/test_nse_wave_handover.py": {
+      "sha256": "697e0823833c164a48b2ba05e1376a6e3059fbf6ea2ab231294a8717aa9bbbd5",
+      "size": 3189
+    },
+    "tests/test_publication_inventory.py": {
+      "sha256": "02fc8c4f397ec0793fe4745635b4b5486ced098d18368a6e710c2d0bbdd0c517",
+      "size": 4394
+    },
+    "textbook/.gitignore": {
+      "sha256": "f51416e3b4fc3aa0dac645d7540262f40b0afc36688c81b411f12cd391038b0b",
+      "size": 15
+    },
+    "textbook/DESIGN.md": {
+      "sha256": "b6692fbf4bf7b6301e01a436c2d409b4ec2998c772d7fda8a9cbe94b0b3c8d48",
+      "size": 1584
+    },
+    "textbook/README.md": {
+      "sha256": "a29d4b4f6fd5918c41ef5fa6961c30b765104631ec53edd231986c2432ddd2c8",
+      "size": 6262
+    },
+    "textbook/REVIEW_GUIDE.md": {
+      "sha256": "1458c329c5a4e5428c64fe15f2ba9c15a200eacaab599c2db2fc2eec3eddcbbc",
+      "size": 2020
+    },
+    "textbook/assets/book.css": {
+      "sha256": "09d2d4adc5a7490a3d7284e412536b6125ed70017dafb9827b3a19a75a9be3fd",
+      "size": 5840
+    },
+    "textbook/assets/book.js": {
+      "sha256": "4b59437148ceb86c36944e24d47aea252a93f46e468f6be49b546df2ff6650aa",
+      "size": 3992
+    },
+    "textbook/assets/fluid/README.md": {
+      "sha256": "5d68750d2203c91e8842edd678031374a623d6c589b18bc6023d615e2f82f4d9",
+      "size": 2261
+    },
+    "textbook/assets/fluid/checks.js": {
+      "sha256": "2aa4d7f1fda0c9767c96cc20e99ffade8e70241650d0ba11ae29274e6d128802",
+      "size": 5330
+    },
+    "textbook/assets/fluid/lab.css": {
+      "sha256": "ade25cbb57f214c04a141928a2ad26e9e355deb2488e72cbe45cacf7ce8cb9a6",
+      "size": 1803
+    },
+    "textbook/assets/fluid/lab.js": {
+      "sha256": "57c81e019d054141be9204fb00c149c0d4105522c3b2d9d494ec52cab52eacc4",
+      "size": 6251
+    },
+    "textbook/assets/fluid/package.json": {
+      "sha256": "c219945793cf0d279c82947a6522e9422b850a215c87cebf040a08aff87a8ee8",
+      "size": 54
+    },
+    "textbook/assets/fluid/protocol.js": {
+      "sha256": "820d72b59e86fa02bc8d58a48f5b50d7e3b7210283d349f0b8e998bc7bec63e1",
+      "size": 797
+    },
+    "textbook/assets/fluid/solver.js": {
+      "sha256": "8cf23c21cb891cd56b601b7539afcf8e3273415d26b2de752f8049a1430c1971",
+      "size": 9501
+    },
+    "textbook/assets/fluid/worker.js": {
+      "sha256": "b3403801c54aa47f164ef25c2fb7841603dacbbe8171bf537adb11bbb51b2857",
+      "size": 1638
+    },
+    "textbook/assets/maps.js": {
+      "sha256": "218a2c3a5a575e8226f01f137b02c0953452fdb2d79c03576ba058a5c524afd3",
+      "size": 4752
+    },
+    "textbook/book.json": {
+      "sha256": "c3c55ebeea3b7c2aa19674c3b2488fba8f05b3fef0e4aa2bde03bcef47cd5148",
+      "size": 2547
+    },
+    "textbook/chapters/activation.md": {
+      "sha256": "8a0a9404a1776d860a9a61f7772fccda2e9fa88db6f2a93dd9b76867d078826a",
+      "size": 17578
+    },
+    "textbook/chapters/advanced-transfer.md": {
+      "sha256": "dbabf72321fc3785e47b50e69377d22410da444cdc72f6739cfee609130d0d18",
+      "size": 39354
+    },
+    "textbook/chapters/calculus-bridge.md": {
+      "sha256": "e8864f14dd8bc85e1a4c765ad9494222369d235a6806261ea1e538a0b29013e4",
+      "size": 12919
+    },
+    "textbook/chapters/composition.md": {
+      "sha256": "c5dd5edd9be8e6ac9cda8d7e6dfeea665df4e142f44fc0a6bc9cf3f1eab99017",
+      "size": 19550
+    },
+    "textbook/chapters/concentration.md": {
+      "sha256": "4fff25a18fd76f5be01d54ef8f7df12e7961e259a7c355b0302c0b8cbdacdc82",
+      "size": 12635
+    },
+    "textbook/chapters/credits.md": {
+      "sha256": "6f79913abf73ffe11bbd601fec7afcda043d179c1d2ace9c7b466553247d196c",
+      "size": 4895
+    },
+    "textbook/chapters/equation.md": {
+      "sha256": "caafbfa62b3c2644191f6517e4fffa7c5bc30231268ebab85c56812d99791b5c",
+      "size": 16028
+    },
+    "textbook/chapters/evidence.md": {
+      "sha256": "0ddf90122e5ed943e5bd58dff5c81bdb64485bf267c1d9e44a7459ca7e7c43cf",
+      "size": 11418
+    },
+    "textbook/chapters/generators.md": {
+      "sha256": "0b01394bca645c457ca13d17486e06281056b64cb52b61228813aa1b35dfafc2",
+      "size": 23987
+    },
+    "textbook/chapters/glossary.md": {
+      "sha256": "ff956cf2d5069dcecd0d6dcc47c41e6862c1f19f9cf2cc26ab25bb5e62d10e18",
+      "size": 6639
+    },
+    "textbook/chapters/index.md": {
+      "sha256": "221466a48b0149eb84518c34f90ed3beaa1ceb3c4865e12deb5ce73fdb2eeba6",
+      "size": 14792
+    },
+    "textbook/chapters/information-action.md": {
+      "sha256": "096a9b79bb0f9f6044eec9e3aa9c574e75c508f18c57865a7d66752a4fc46dcf",
+      "size": 13174
+    },
+    "textbook/chapters/iteration.md": {
+      "sha256": "0242c2dc59a0f715fb8323555abaeec0660108176863bbc8b2c9d9a3748a6e84",
+      "size": 14782
+    },
+    "textbook/chapters/new-constructions.md": {
+      "sha256": "2ccd83a8544bb6c5a70a9e31e5cf6897b7f5e1b7518fd24ad5e5b7b073e583e2",
+      "size": 14139
+    },
+    "textbook/chapters/oblique.md": {
+      "sha256": "092abd2ee7a6b51390f44a79af0da1152a6782272917961a4a69e6ae9033984d",
+      "size": 13744
+    },
+    "textbook/chapters/practice.md": {
+      "sha256": "4e04fe270c21f2969d94c69f8c8d349390fd85ea0406450ebb79942aa2bede27",
+      "size": 27446
+    },
+    "textbook/chapters/published-proof.md": {
+      "sha256": "c20159e2f2ad1708e4af219ce7b2b49fb59c7bfc4fa921233359689dd00badf4",
+      "size": 21722
+    },
+    "textbook/chapters/reader-map.md": {
+      "sha256": "649ee45b0dcd150c0de898aa369348ff4d4831d96a4c33d73ee2e0696046ace5",
+      "size": 10155
+    },
+    "textbook/chapters/references.md": {
+      "sha256": "78ecbe5a51835bb617775ac3fd358eef414bc160cda4a1ccf53900b227fbd6d6",
+      "size": 8517
+    },
+    "textbook/chapters/residuals.md": {
+      "sha256": "dac688ef7a6b927a31d58be3d16a63c3b24fc906e545b51547e26d102f2ec233",
+      "size": 21060
+    },
+    "textbook/chapters/scaling.md": {
+      "sha256": "165e228152708b87f9af9ea29134b2ae736dc49a705db208febfae5d60fc5699",
+      "size": 17865
+    },
+    "textbook/chapters/simulator.md": {
+      "sha256": "4b7de80a569bd0be3b9e8bd5dec7e7de643ca7b581addacb5c80ea8ef8c4a331",
+      "size": 6776
+    },
+    "textbook/chapters/steady.md": {
+      "sha256": "d19c20ee0c9cc0c29476195b69a5d23265afa79ca2f395d89a298d7f8ae85827",
+      "size": 11025
+    },
+    "textbook/chapters/transfer-systems.md": {
+      "sha256": "35a910af5b99a4d8764467ba9c3397ec9aa91c72764331f45cdd0fefc5b776d9",
+      "size": 15179
+    },
+    "textbook/chapters/transformations.md": {
+      "sha256": "27cd4c06bd7bc6bf8f6271c5a0b6ab8a89b306e20aedacf21024211834df81af",
+      "size": 21212
+    },
+    "textbook/chapters/viscous.md": {
+      "sha256": "198c3254237f521fab708ca8bd23562162796422c2bf5638e19f693b36d76153",
+      "size": 20931
+    },
+    "textbook/claims.json": {
+      "sha256": "aab8ebac17853798f6936e1e1890be52f5f766c0ca2b15d08dbc3bae9194dd01",
+      "size": 81079
+    },
+    "textbook/claims.md": {
+      "sha256": "a13c26980c5c4d2d64ab25bafeb2834616feb459a206146895ba7db602dfa109",
+      "size": 55865
+    },
+    "textbook/course-outline.json": {
+      "sha256": "e9b2fa408804607739978c502439f6600f84d5964f9aff1d88f90dc659648927",
+      "size": 8575
+    },
+    "textbook/requirements.txt": {
+      "sha256": "8d57742e7a0bb87adf2d3f3ecbe3dfcabaf3cb66c76d07912d3508e0d28d140c",
+      "size": 16
+    },
+    "transformatics/core.py": {
+      "sha256": "c05923ed50abe0caaa7c87c8494fa6d234dbff936150e8a0bd099900e8f6d5fa",
+      "size": 2150
+    },
+    "transformatics/operators.py": {
+      "sha256": "cca0423922f434d9b93fadf85818828f4984044679534e68c41fc69965dc4589",
+      "size": 1251
+    }
+  },
+  "generated_by": "scripts/update_publication_inventory.py"
+}
